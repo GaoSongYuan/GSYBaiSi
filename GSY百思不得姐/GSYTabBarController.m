@@ -9,6 +9,7 @@
 // GSY GSY GSY GSY GSY GSY GSY
 
 #import "GSYTabBarController.h"
+#import "GSYTabBar.h"
 
 @interface GSYTabBarController ()
 
@@ -37,13 +38,21 @@
     [self setupOneChildViewController:[[UIViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    
+    
+#warning 更换tabBar ******
+    /**** 更换tabbar ****/
+    [self setValue:[[GSYTabBar alloc] init] forKey:@"tabBar"];
+#warning 更换tabBar ******
 }
 
 -(void)setupOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
-    vc.view.backgroundColor = [UIColor redColor];
+    vc.view.backgroundColor = GSYRandomColor;
     vc.tabBarItem.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
-    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    if (image.length) {
+        vc.tabBarItem.image = [UIImage imageNamed:image];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    }
     [self addChildViewController:vc];
 }
 

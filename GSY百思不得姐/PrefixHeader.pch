@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  GSY百思不得姐
+//
+//  Created by Song on 17/8/2.
+//  Copyright © 2017年 Song. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#ifdef __OBJC__
+
+    /**** 颜色 ****/
+    // 带有透明度的颜色，透明度传值为0-255
+    #define GSYColorA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0];
+    // 普通RGB颜色,透明度为1,即不透明
+    #define GSYColor(r,g,b) GSYColorA((r),(g),(b),255)
+    // 随机色，可以直接使用GSYRandomColor
+    #define GSYRandomColor GSYColor(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255))
+
+    /**** 日志输出 ****/
+    #ifdef DEBUG
+        #define GSYLog(...) NSLog(__VA_ARGS__);
+    #else
+        #define GSYLog(...) // GSYLog 作用为空
+    #endif
+
+#endif
+
+
+
+#endif /* PrefixHeader_pch */

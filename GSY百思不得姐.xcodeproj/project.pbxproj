@@ -13,6 +13,7 @@
 		E4FC3CE31F301794006C6C2E /* GSY_____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CE21F301794006C6C2E /* GSY_____Tests.m */; };
 		E4FC3CEE1F301794006C6C2E /* GSY_____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CED1F301794006C6C2E /* GSY_____UITests.m */; };
 		E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */; };
+		E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,9 @@
 		E4FC3CEF1F301794006C6C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4FC3CFC1F30194B006C6C2E /* GSYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYTabBarController.h; sourceTree = "<group>"; };
 		E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTabBarController.m; sourceTree = "<group>"; };
+		E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYTabBar.h; sourceTree = "<group>"; };
+		E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTabBar.m; sourceTree = "<group>"; };
+		E4FC3D0F1F316776006C6C2E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,9 @@
 				E4FC3CC91F301794006C6C2E /* main.m */,
 				E4FC3CFC1F30194B006C6C2E /* GSYTabBarController.h */,
 				E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */,
+				E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */,
+				E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */,
+				E4FC3D0F1F316776006C6C2E /* PrefixHeader.pch */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -275,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */,
+				E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,
 				E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */,
 			);
@@ -405,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "GSY百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "GSY百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Song.GSY-----";
@@ -417,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "GSY百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "GSY百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Song.GSY-----";
@@ -489,6 +499,7 @@
 				E4FC3CF41F301794006C6C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4FC3CF51F301794006C6C2E /* Build configuration list for PBXNativeTarget "GSY百思不得姐Tests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +508,7 @@
 				E4FC3CF71F301794006C6C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4FC3CF81F301794006C6C2E /* Build configuration list for PBXNativeTarget "GSY百思不得姐UITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +517,7 @@
 				E4FC3CFA1F301794006C6C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
