@@ -33,8 +33,12 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat buttonW = self.frame.size.width / 5;
-    CGFloat buttonH = self.frame.size.height;
+//    CGFloat buttonW = self.frame.size.width / 5;
+//    CGFloat buttonH = self.frame.size.height;
+//    CGFloat buttonY = 0;
+
+    CGFloat buttonW = self.gsy_width / 5; // 使用扩展，拿到宽度高度
+    CGFloat buttonH = self.gsy_height;
     CGFloat buttonY = 0;
     
     // 索引
@@ -59,8 +63,12 @@
     }
     
     /**** 设置中间的发布按钮的 frame ****/
-    self.publishButton.frame = CGRectMake(0, 0, buttonW, buttonH);
-    self.publishButton.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+//    self.publishButton.frame = CGRectMake(0, 0, buttonW, buttonH);
+//    self.publishButton.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+    self.publishButton.gsy_width = buttonW;
+    self.publishButton.gsy_height = buttonH;
+    self.publishButton.gsy_centerX = self.gsy_width * 0.5;
+    self.publishButton.gsy_centerY = self.gsy_height * 0.5; // 使用扩展，设置宽高中心点
 }
 
 -(void)publishClick {

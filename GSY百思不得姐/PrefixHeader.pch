@@ -12,6 +12,8 @@
 
 #ifdef __OBJC__
 
+    #import "UIView+GSYExtension.h"
+
     /**** 颜色 ****/
     // 带有透明度的颜色，透明度传值为0-255
     #define GSYColorA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0];
@@ -26,6 +28,9 @@
     #else
         #define GSYLog(...) // GSYLog 作用为空
     #endif
+
+    // 打印方法
+    #define GSYLogFunc GSYLog(@"%s",__func__);
 
 #endif
 

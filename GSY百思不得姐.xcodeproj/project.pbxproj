@@ -14,6 +14,11 @@
 		E4FC3CEE1F301794006C6C2E /* GSY_____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CED1F301794006C6C2E /* GSY_____UITests.m */; };
 		E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */; };
 		E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */; };
+		E4FC3DB01F340C22006C6C2E /* UIView+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DAF1F340C22006C6C2E /* UIView+GSYExtension.m */; };
+		E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DB21F3416FB006C6C2E /* GSYMeViewController.m */; };
+		E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DB51F34170B006C6C2E /* GSYFollowViewController.m */; };
+		E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DB81F341715006C6C2E /* GSYNewViewController.m */; };
+		E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DBB1F341723006C6C2E /* GSYEssenceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYTabBar.h; sourceTree = "<group>"; };
 		E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTabBar.m; sourceTree = "<group>"; };
 		E4FC3D0F1F316776006C6C2E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E4FC3DAE1F340C22006C6C2E /* UIView+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GSYExtension.h"; sourceTree = "<group>"; };
+		E4FC3DAF1F340C22006C6C2E /* UIView+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSYExtension.m"; sourceTree = "<group>"; };
+		E4FC3DB11F3416FB006C6C2E /* GSYMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYMeViewController.h; sourceTree = "<group>"; };
+		E4FC3DB21F3416FB006C6C2E /* GSYMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYMeViewController.m; sourceTree = "<group>"; };
+		E4FC3DB41F34170B006C6C2E /* GSYFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYFollowViewController.h; sourceTree = "<group>"; };
+		E4FC3DB51F34170B006C6C2E /* GSYFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYFollowViewController.m; sourceTree = "<group>"; };
+		E4FC3DB71F341715006C6C2E /* GSYNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYNewViewController.h; sourceTree = "<group>"; };
+		E4FC3DB81F341715006C6C2E /* GSYNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYNewViewController.m; sourceTree = "<group>"; };
+		E4FC3DBA1F341723006C6C2E /* GSYEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYEssenceViewController.h; sourceTree = "<group>"; };
+		E4FC3DBB1F341723006C6C2E /* GSYEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYEssenceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,16 +152,186 @@
 		E4FC3CFB1F301911006C6C2E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E4FC3D9E1F340A53006C6C2E /* Essence-精华 */,
+				E4FC3D9D1F340A46006C6C2E /* New-新帖 */,
+				E4FC3D9C1F340A3B006C6C2E /* Follow-关注 */,
+				E4FC3D9B1F340A31006C6C2E /* Me-我 */,
+				E4FC3D9A1F340A07006C6C2E /* Other-其他 */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		E4FC3D9A1F340A07006C6C2E /* Other-其他 */ = {
+			isa = PBXGroup;
+			children = (
 				E4FC3CCB1F301794006C6C2E /* AppDelegate.h */,
 				E4FC3CCC1F301794006C6C2E /* AppDelegate.m */,
 				E4FC3CC91F301794006C6C2E /* main.m */,
-				E4FC3CFC1F30194B006C6C2E /* GSYTabBarController.h */,
-				E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */,
+				E4FC3D0F1F316776006C6C2E /* PrefixHeader.pch */,
+				E4FC3DA11F340A80006C6C2E /* View */,
+				E4FC3DA01F340A78006C6C2E /* Controller */,
+				E4FC3D9F1F340A64006C6C2E /* Category */,
+			);
+			name = "Other-其他";
+			sourceTree = "<group>";
+		};
+		E4FC3D9B1F340A31006C6C2E /* Me-我 */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DA41F340AD6006C6C2E /* Model */,
+				E4FC3DA31F340AD0006C6C2E /* View */,
+				E4FC3DA21F340AC7006C6C2E /* Controller */,
+			);
+			name = "Me-我";
+			sourceTree = "<group>";
+		};
+		E4FC3D9C1F340A3B006C6C2E /* Follow-关注 */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DA71F340AFA006C6C2E /* Model */,
+				E4FC3DA61F340AF3006C6C2E /* View */,
+				E4FC3DA51F340AE0006C6C2E /* Controller */,
+			);
+			name = "Follow-关注";
+			sourceTree = "<group>";
+		};
+		E4FC3D9D1F340A46006C6C2E /* New-新帖 */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DAA1F340B11006C6C2E /* Model */,
+				E4FC3DA91F340B0C006C6C2E /* View */,
+				E4FC3DA81F340B04006C6C2E /* Controller */,
+			);
+			name = "New-新帖";
+			sourceTree = "<group>";
+		};
+		E4FC3D9E1F340A53006C6C2E /* Essence-精华 */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DAD1F340B28006C6C2E /* Model */,
+				E4FC3DAC1F340B20006C6C2E /* View */,
+				E4FC3DAB1F340B19006C6C2E /* Controller */,
+			);
+			name = "Essence-精华";
+			sourceTree = "<group>";
+		};
+		E4FC3D9F1F340A64006C6C2E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DAE1F340C22006C6C2E /* UIView+GSYExtension.h */,
+				E4FC3DAF1F340C22006C6C2E /* UIView+GSYExtension.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		E4FC3DA01F340A78006C6C2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */,
 				E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */,
-				E4FC3D0F1F316776006C6C2E /* PrefixHeader.pch */,
+				E4FC3CFC1F30194B006C6C2E /* GSYTabBarController.h */,
+				E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */,
 			);
-			name = Class;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E4FC3DA11F340A80006C6C2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E4FC3DA21F340AC7006C6C2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DB11F3416FB006C6C2E /* GSYMeViewController.h */,
+				E4FC3DB21F3416FB006C6C2E /* GSYMeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E4FC3DA31F340AD0006C6C2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E4FC3DA41F340AD6006C6C2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E4FC3DA51F340AE0006C6C2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DB41F34170B006C6C2E /* GSYFollowViewController.h */,
+				E4FC3DB51F34170B006C6C2E /* GSYFollowViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E4FC3DA61F340AF3006C6C2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E4FC3DA71F340AFA006C6C2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E4FC3DA81F340B04006C6C2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DB71F341715006C6C2E /* GSYNewViewController.h */,
+				E4FC3DB81F341715006C6C2E /* GSYNewViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E4FC3DA91F340B0C006C6C2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E4FC3DAA1F340B11006C6C2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E4FC3DAB1F340B19006C6C2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC3DBA1F341723006C6C2E /* GSYEssenceViewController.h */,
+				E4FC3DBB1F341723006C6C2E /* GSYEssenceViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E4FC3DAC1F340B20006C6C2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E4FC3DAD1F340B28006C6C2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +467,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */,
+				E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */,
 				E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */,
+				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
+				E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,
+				E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */,
 				E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */,
+				E4FC3DB01F340C22006C6C2E /* UIView+GSYExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
