@@ -13,6 +13,7 @@
 #ifdef __OBJC__
 
     #import "UIView+GSYExtension.h"
+    #import "UIBarButtonItem+GSYExtension.h"
 
     /**** 颜色 ****/
     // 带有透明度的颜色，透明度传值为0-255

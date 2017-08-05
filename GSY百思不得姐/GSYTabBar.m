@@ -30,6 +30,16 @@
     return _publishButton;
 }
 
+#warning 初始化。设置layout
+#pragma mark - 初始化。设置layout
+-(instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
+    }
+    return self;
+}
+#warning 初始化。设置layout
+
 -(void)layoutSubviews {
     [super layoutSubviews];
     

@@ -7,6 +7,7 @@
 //
 
 #import "GSYFollowViewController.h"
+#import "GSYRecommendFollowViewController.h"
 
 @interface GSYFollowViewController ()
 
@@ -24,17 +25,14 @@
     self.navigationItem.title = @"我的关注";
     
     // 左边
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(leftClick) forControlEvents:UIControlEventTouchUpInside];
-    [button sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(leftClick)];
     
 }
 
 -(void)leftClick {
     GSYLogFunc;
+    GSYRecommendFollowViewController *recommend = [[GSYRecommendFollowViewController alloc] init];
+    [self.navigationController pushViewController:recommend animated:YES];
 }
 
 @end
