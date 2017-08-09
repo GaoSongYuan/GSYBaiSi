@@ -23,6 +23,12 @@
     // 随机色，可以直接使用GSYRandomColor
     #define GSYRandomColor GSYColor(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255))
 
+    // 灰色
+    #define GSYGrayColor(v) GSYColor((v),(v),(v))
+    // 统一的灰色
+    #define GSYCommonBgColor GSYGrayColor(206)
+
+
     /**** 日志输出 ****/
     #ifdef DEBUG
         #define GSYLog(...) NSLog(__VA_ARGS__);

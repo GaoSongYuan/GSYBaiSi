@@ -22,6 +22,7 @@
 		E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DC71F354573006C6C2E /* GSYNavigationController.m */; };
 		E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DCA1F354659006C6C2E /* GSYRecommendFollowViewController.m */; };
 		E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */; };
+		E4FC3E2E1F3A8C77006C6C2E /* GSYFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3E2D1F3A8C77006C6C2E /* GSYFollowViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		E4FC3DCA1F354659006C6C2E /* GSYRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYRecommendFollowViewController.m; sourceTree = "<group>"; };
 		E4FC3DCC1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GSYExtension.h"; sourceTree = "<group>"; };
 		E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GSYExtension.m"; sourceTree = "<group>"; };
+		E4FC3E2D1F3A8C77006C6C2E /* GSYFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYFollowViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 			children = (
 				E4FC3DB41F34170B006C6C2E /* GSYFollowViewController.h */,
 				E4FC3DB51F34170B006C6C2E /* GSYFollowViewController.m */,
+				E4FC3E2D1F3A8C77006C6C2E /* GSYFollowViewController.xib */,
 				E4FC3DC91F354659006C6C2E /* GSYRecommendFollowViewController.h */,
 				E4FC3DCA1F354659006C6C2E /* GSYRecommendFollowViewController.m */,
 			);
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */,
+				E4FC3E2E1F3A8C77006C6C2E /* GSYFollowViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

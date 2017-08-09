@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = GSYRandomColor;
+    self.view.backgroundColor = GSYCommonBgColor;
     self.navigationItem.title = @"推荐关注";
     
 }
