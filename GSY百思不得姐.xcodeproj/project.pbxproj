@@ -23,6 +23,9 @@
 		E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DCA1F354659006C6C2E /* GSYRecommendFollowViewController.m */; };
 		E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */; };
 		E4FC3E2E1F3A8C77006C6C2E /* GSYFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3E2D1F3A8C77006C6C2E /* GSYFollowViewController.xib */; };
+		E4FC3E3A1F3BDE88006C6C2E /* GSYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E381F3BDE88006C6C2E /* GSYLoginRegisterViewController.m */; };
+		E4FC3E3B1F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */; };
+		E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,11 @@
 		E4FC3DCC1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GSYExtension.h"; sourceTree = "<group>"; };
 		E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GSYExtension.m"; sourceTree = "<group>"; };
 		E4FC3E2D1F3A8C77006C6C2E /* GSYFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYFollowViewController.xib; sourceTree = "<group>"; };
+		E4FC3E371F3BDE88006C6C2E /* GSYLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYLoginRegisterViewController.h; sourceTree = "<group>"; };
+		E4FC3E381F3BDE88006C6C2E /* GSYLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYLoginRegisterViewController.m; sourceTree = "<group>"; };
+		E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		E4FC3E3C1F3BE4A6006C6C2E /* GSYQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYQuickLoginButton.h; sourceTree = "<group>"; };
+		E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYQuickLoginButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,12 +248,13 @@
 		E4FC3DA01F340A78006C6C2E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */,
-				E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */,
 				E4FC3CFC1F30194B006C6C2E /* GSYTabBarController.h */,
 				E4FC3CFD1F30194B006C6C2E /* GSYTabBarController.m */,
 				E4FC3DC61F354573006C6C2E /* GSYNavigationController.h */,
 				E4FC3DC71F354573006C6C2E /* GSYNavigationController.m */,
+				E4FC3E371F3BDE88006C6C2E /* GSYLoginRegisterViewController.h */,
+				E4FC3E381F3BDE88006C6C2E /* GSYLoginRegisterViewController.m */,
+				E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -253,6 +262,10 @@
 		E4FC3DA11F340A80006C6C2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4FC3D0C1F316725006C6C2E /* GSYTabBar.h */,
+				E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */,
+				E4FC3E3C1F3BE4A6006C6C2E /* GSYQuickLoginButton.h */,
+				E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -461,6 +474,7 @@
 			files = (
 				E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */,
 				E4FC3E2E1F3A8C77006C6C2E /* GSYFollowViewController.xib in Resources */,
+				E4FC3E3B1F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +508,9 @@
 				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
 				E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,
+				E4FC3E3A1F3BDE88006C6C2E /* GSYLoginRegisterViewController.m in Sources */,
 				E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */,
+				E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */,
 				E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */,
 				E4FC3DB01F340C22006C6C2E /* UIView+GSYExtension.m in Sources */,
 			);

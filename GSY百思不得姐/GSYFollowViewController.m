@@ -8,6 +8,7 @@
 
 #import "GSYFollowViewController.h"
 #import "GSYRecommendFollowViewController.h"
+#import "GSYLoginRegisterViewController.h"
 
 @interface GSYFollowViewController ()
 
@@ -33,6 +34,12 @@
     GSYLogFunc;
     GSYRecommendFollowViewController *recommend = [[GSYRecommendFollowViewController alloc] init];
     [self.navigationController pushViewController:recommend animated:YES];
+}
+
+// 登录注册
+- (IBAction)loginOrRegister {
+    GSYLoginRegisterViewController *loginRegister = [[GSYLoginRegisterViewController alloc] init];
+    [self presentViewController:loginRegister animated:YES completion:nil];
 }
 
 @end
