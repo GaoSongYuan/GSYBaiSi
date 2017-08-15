@@ -26,6 +26,7 @@
 		E4FC3E3A1F3BDE88006C6C2E /* GSYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E381F3BDE88006C6C2E /* GSYLoginRegisterViewController.m */; };
 		E4FC3E3B1F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */; };
 		E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */; };
+		E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E431F42967D006C6C2E /* GSYLoginRegisterTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		E4FC3E3C1F3BE4A6006C6C2E /* GSYQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYQuickLoginButton.h; sourceTree = "<group>"; };
 		E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYQuickLoginButton.m; sourceTree = "<group>"; };
+		E4FC3E421F42967D006C6C2E /* GSYLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYLoginRegisterTextField.h; sourceTree = "<group>"; };
+		E4FC3E431F42967D006C6C2E /* GSYLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYLoginRegisterTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +269,8 @@
 				E4FC3D0D1F316725006C6C2E /* GSYTabBar.m */,
 				E4FC3E3C1F3BE4A6006C6C2E /* GSYQuickLoginButton.h */,
 				E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */,
+				E4FC3E421F42967D006C6C2E /* GSYLoginRegisterTextField.h */,
+				E4FC3E431F42967D006C6C2E /* GSYLoginRegisterTextField.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 			files = (
 				E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */,
 				E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */,
+				E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */,
 				E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */,
 				E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */,
 				E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */,
