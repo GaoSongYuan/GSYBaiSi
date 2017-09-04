@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E441C7451F5D46B5002615B7 /* UITextField+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E441C7441F5D46B5002615B7 /* UITextField+GSYExtension.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
 		E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3CD41F301794006C6C2E /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E441C7431F5D46B5002615B7 /* UITextField+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GSYExtension.h"; sourceTree = "<group>"; };
+		E441C7441F5D46B5002615B7 /* UITextField+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GSYExtension.m"; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FC3CC91F301794006C6C2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4FC3CCB1F301794006C6C2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				E4FC3DAF1F340C22006C6C2E /* UIView+GSYExtension.m */,
 				E4FC3DCC1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.h */,
 				E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */,
+				E441C7431F5D46B5002615B7 /* UITextField+GSYExtension.h */,
+				E441C7441F5D46B5002615B7 /* UITextField+GSYExtension.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */,
 				E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */,
 				E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */,
+				E441C7451F5D46B5002615B7 /* UITextField+GSYExtension.m in Sources */,
 				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
 				E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,

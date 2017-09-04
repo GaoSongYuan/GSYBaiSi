@@ -9,7 +9,7 @@
 #import "GSYLoginRegisterTextField.h"
 //#import <objc/runtime.h>
 
-static NSString * const GSYPlaceholderColorKey = @"_placeholderLabel.textColor";
+//static NSString * const GSYPlaceholderColorKey = @"_placeholderLabel.textColor";
 
 @implementation GSYLoginRegisterTextField
 
@@ -37,7 +37,10 @@ static NSString * const GSYPlaceholderColorKey = @"_placeholderLabel.textColor";
     // 利用找出的成员变量中的_placeholderLabel，使用kvc，设置占位文字颜色
 //    UILabel *label = [self valueForKeyPath:@"_placeholderLabel"];
 //    label.textColor = [UIColor lightGrayColor];
-    [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+    
+    #pragma 占位文字颜色设置 - 封装
+//    [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+    self.placeholderColor = [UIColor lightGrayColor];
     
     [self addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
     [self addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
@@ -45,11 +48,13 @@ static NSString * const GSYPlaceholderColorKey = @"_placeholderLabel.textColor";
 
 // 开始编辑
 -(void)editingDidBegin {
-    [self setValue:[UIColor whiteColor] forKeyPath:GSYPlaceholderColorKey];
+//    [self setValue:[UIColor whiteColor] forKeyPath:GSYPlaceholderColorKey];
+    self.placeholderColor = [UIColor whiteColor];
 }
 
 // 结束编辑
 -(void)editingDidEnd {
-    [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+//    [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+    self.placeholderColor = [UIColor lightGrayColor];
 }
 @end
