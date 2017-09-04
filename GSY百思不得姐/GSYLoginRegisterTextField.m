@@ -38,6 +38,18 @@ static NSString * const GSYPlaceholderColorKey = @"_placeholderLabel.textColor";
 //    UILabel *label = [self valueForKeyPath:@"_placeholderLabel"];
 //    label.textColor = [UIColor lightGrayColor];
     [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+    
+    [self addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
+    [self addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
 }
 
+// 开始编辑
+-(void)editingDidBegin {
+    [self setValue:[UIColor whiteColor] forKeyPath:GSYPlaceholderColorKey];
+}
+
+// 结束编辑
+-(void)editingDidEnd {
+    [self setValue:[UIColor lightGrayColor] forKeyPath:GSYPlaceholderColorKey];
+}
 @end
