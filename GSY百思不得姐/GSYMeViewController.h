@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GSYMeViewController : UIViewController
+@interface GSYMeViewController : UITableViewController
 
 @end
