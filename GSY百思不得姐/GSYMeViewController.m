@@ -7,6 +7,8 @@
 //
 
 #import "GSYMeViewController.h"
+#import "GSYMeCell.h"
+#import "GSYMeFooterView.h"
 
 @interface GSYMeViewController ()
 
@@ -20,17 +22,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView.sectionFooterHeight = 0;
-    
-//    // 单独使用下面三行，不需配合hight代理方法 也可以设置均分间隔
-//    self.tableView.sectionHeaderHeight = 0;
-//    self.tableView.sectionFooterHeight = 10;
-//    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
-    
+    [self setupTable];
+    [self setupNav];
+}
+
+// 设置tableView
+-(void)setupTable {
     self.view.backgroundColor = GSYCommonBgColor;
-    GSYLogFunc;
+    // 单独使用下面三行，不需配合hight代理方法 也可以设置均分间隔
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     
+    // 设置footerView
+    self.tableView.tableFooterView = [[GSYMeFooterView alloc] init];
+}
+
+// 设置导航栏
+-(void)setupNav {
     // 标题
     self.navigationItem.title = @"我的";
     
@@ -39,7 +48,7 @@
     
     // 左边月亮
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
-
+    
     self.navigationItem.rightBarButtonItems = @[settingItem,moonItem];
 }
 
@@ -53,7 +62,7 @@
 
 #pragma mark - 数据源方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -66,32 +75,29 @@
     static NSString *ID = @"cell";
     
     // 2.从缓存池中取出
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    GSYMeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     // 3.如果空就手动创建
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[GSYMeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd",indexPath.section];
+    
+    // 4.设置数据
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"setup-head-default"];
+    } else {
+        cell.textLabel.text = @"离线下载";
+        cell.imageView.image = nil;
+    }
+    
     return cell;
 }
 
 #pragma mark - 代理方法
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
-        return 200;
-    }
+
     return 44;
 }
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
-}
-
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *foot = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 10)];
-//    foot.backgroundColor = [UIColor redColor];
-//    return foot;
-//}
 
 @end
