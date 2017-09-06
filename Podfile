@@ -4,5 +4,6 @@
 target 'GSY百思不得姐' do
 pod ‘AFNetworking’
 pod ‘SDWebImage’
+pod ‘MJExtension’
 
 end
