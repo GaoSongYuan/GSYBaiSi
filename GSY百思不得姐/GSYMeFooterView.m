@@ -68,19 +68,17 @@
         button.gsy_height = buttonH; // 此处可以减去0.5，把底部灰色露出来，当做分割线
         
         // 设置数据
-//        button.backgroundColor = GSYRandomColor;
         [button setTitle:square.name forState:UIControlStateNormal];
         [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"publish-offline"]];
-        button.backgroundColor = [UIColor whiteColor];
     }
     
-    // footer高度
+    // footer高度 == 最后一个按钮的bottom（最大Y值）
     self.gsy_height = self.subviews.lastObject.gsy_bottom;
-//    self.gsy_height = (count / maxColsCount + 1) * buttonH;
     
-    // footer重新赋给tableview
+    // footer重新赋给tableview 设置tableView的contentSize
     UITableView *tableView = (UITableView *)self.superview;
-    tableView.contentSize = CGSizeMake(0, self.gsy_bottom);
+    tableView.tableFooterView = self;
+    [tableView reloadData]; // 重新刷新数据（其实也会重新计算contentSize）
 }
 
 -(void)buttonClick:(GSYMeSquareButton *)button {
