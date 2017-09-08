@@ -13,6 +13,7 @@
 		E441C7511F5E678A002615B7 /* GSYMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E441C7501F5E678A002615B7 /* GSYMeCell.m */; };
 		E441C7541F5E6902002615B7 /* GSYConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E441C7531F5E6902002615B7 /* GSYConst.m */; };
 		E441C7571F5E6B97002615B7 /* GSYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E441C7561F5E6B97002615B7 /* GSYMeFooterView.m */; };
+		E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E46800751F610CC60007214F /* GSYMeSquareButton.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
 		E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3CD41F301794006C6C2E /* Assets.xcassets */; };
@@ -66,6 +67,8 @@
 		E441C7531F5E6902002615B7 /* GSYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYConst.m; sourceTree = "<group>"; };
 		E441C7551F5E6B97002615B7 /* GSYMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYMeFooterView.h; sourceTree = "<group>"; };
 		E441C7561F5E6B97002615B7 /* GSYMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYMeFooterView.m; sourceTree = "<group>"; };
+		E46800741F610CC60007214F /* GSYMeSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYMeSquareButton.h; sourceTree = "<group>"; };
+		E46800751F610CC60007214F /* GSYMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYMeSquareButton.m; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FC3CC91F301794006C6C2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4FC3CCB1F301794006C6C2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				E441C7501F5E678A002615B7 /* GSYMeCell.m */,
 				E441C7551F5E6B97002615B7 /* GSYMeFooterView.h */,
 				E441C7561F5E6B97002615B7 /* GSYMeFooterView.m */,
+				E46800741F610CC60007214F /* GSYMeSquareButton.h */,
+				E46800751F610CC60007214F /* GSYMeSquareButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */,
 				E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */,
 				E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */,
+				E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */,
 				E441C7511F5E678A002615B7 /* GSYMeCell.m in Sources */,
 				E41D781F1F5FC47D00C1A7E7 /* GSYMeSquare.m in Sources */,
 				E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */,

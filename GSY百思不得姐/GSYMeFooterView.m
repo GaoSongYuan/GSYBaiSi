@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import "GSYMeSquareButton.h"
 
 @implementation GSYMeFooterView
 
@@ -24,7 +25,7 @@
         
         // 请求
         AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-        [session GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [session GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
             
             // 字典数组 -> 模型数组
             NSArray *squares = [GSYMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
@@ -44,7 +45,7 @@
     NSUInteger count = squares.count;
     
     // 方块尺寸
-    int maxColsCount = 5; // 一行的最大列数
+    int maxColsCount = 4; // 一行的最大列数
     CGFloat buttonW = self.gsy_width / maxColsCount;
     CGFloat buttonH = buttonW;
     
@@ -55,7 +56,7 @@
         GSYMeSquare *square = squares[i];
         
         // 创建按钮
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        GSYMeSquareButton *button = [GSYMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         
@@ -66,14 +67,22 @@
         button.gsy_height = buttonH;
         
         // 设置数据
-        button.backgroundColor = GSYRandomColor;
+//        button.backgroundColor = GSYRandomColor;
         [button setTitle:square.name forState:UIControlStateNormal];
         [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"publish-offline"]];
     }
+    // footer高度
+//    self.gsy_height = (count / maxColsCount + 1) * buttonH;
+    self.gsy_height = self.subviews.lastObject.gsy_bottom;
+    self.backgroundColor = [UIColor whiteColor];
+    
+    // footer重新赋给tableview
+    UITableView *tableView = (UITableView *)self.superview;
+    tableView.contentSize = CGSizeMake(0, self.gsy_bottom);
 }
 
--(void)buttonClick:(UIButton *)button {
-    
+-(void)buttonClick:(GSYMeSquareButton *)button {
+    NSLog(@"%@",button);
 }
 
 

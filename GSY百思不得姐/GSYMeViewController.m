@@ -31,8 +31,8 @@
     self.view.backgroundColor = GSYCommonBgColor;
     // 单独使用下面三行，不需配合hight代理方法 也可以设置均分间隔
     self.tableView.sectionHeaderHeight = 0;
-    self.tableView.sectionFooterHeight = 10;
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    self.tableView.sectionFooterHeight = GSYMargin;
+    self.tableView.contentInset = UIEdgeInsetsMake(GSYMargin-35, 0, 0, 0);
     
     // 设置footerView
     self.tableView.tableFooterView = [[GSYMeFooterView alloc] init];
