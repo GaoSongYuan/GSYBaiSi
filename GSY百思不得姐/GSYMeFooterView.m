@@ -13,7 +13,31 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "GSYMeSquareButton.h"
 
+@interface GSYMeFooterView()
+
+// 存放所有模型的字典
+@property(nonatomic,strong) NSMutableDictionary<NSString *,GSYMeSquare *> *allSquares;
+
+// 过滤后的模型字典
+//@property(nonatomic,strong) NSMutableDictionary<NSString *,GSYMeSquare *> *lastSquares;
+
+@end
+
 @implementation GSYMeFooterView
+
+// 懒加载
+-(NSMutableDictionary<NSString *,GSYMeSquare *> *)allSquares {
+    if (!_allSquares) {
+        _allSquares = [NSMutableDictionary dictionary];
+    }
+    return _allSquares;
+}
+//-(NSMutableDictionary<NSString *,GSYMeSquare *> *)lastSquares {
+//    if (!_lastSquares) {
+//        _lastSquares = [NSMutableDictionary dictionary];
+//    }
+//    return _lastSquares;
+//}
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -29,7 +53,10 @@
             
             // 字典数组 -> 模型数组
             NSArray *squares = [GSYMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
-            [self creatSquares:squares];
+            
+//            NSLog(@"%@",squares);
+            
+            [self creatSquares:squares]; // 模型数组
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"请求失败--");
@@ -49,12 +76,56 @@
     CGFloat buttonW = self.gsy_width / maxColsCount;
     CGFloat buttonH = buttonW;
     
+//    GSYMeSquare *GSYsquare;
+//    for (NSUInteger a = 0; a<count; a++) {
+//        GSYsquare = squares[a];
+//        
+//        // 利用方块的名字作为key，存储方块模型。
+//        // 通过名字，就能取出模型。
+//        self.lastSquares[GSYsquare.name] = GSYsquare;
+//    }
+    
+//    NSString *title;
+//    for (title in [self.lastSquares allKeys]) {
+////        NSLog(@"%@",self.lastSquares[title]);
+//        GSYsquare = self.lastSquares[title];
+//        NSLog(@"%@",GSYsquare);
+//    }
+    
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    for (NSString *name in self.lastSquares) {
+//        [dict setObject:name forKey:name];
+//    }
+//    NSLog(@"%@",[dict allValues]);
+    
+
+//    NSSet *set = [NSSet setWithObject:self.lastSquares[GSYsquare.name]];
+//    NSLog(@"%@",[set allObjects]);
+
+//    NSLog(@"%lu",(unsigned long)count); // 42
+//    NSLog(@"%lu",(unsigned long)self.lastSquares.count); // 35
     // 创建所有的方块
     for (NSUInteger i = 0; i<count ; i++) {
         
         // i 位置对应的模型数据
         GSYMeSquare *square = squares[i];
         
+        // 利用方块的名字作为key，存储方块模型。
+        // 通过名字，就能取出模型。
+        self.allSquares[square.name] = square;
+        
+//        // 全部的的模型放入 GSYsquare
+//        for (NSUInteger a = 0; a<count; a++) {
+//            GSYsquare = squares[a];
+//            
+//            if (GSYsquare.name) {
+//                squares[a] = squares[a+1]
+//            }
+//        }
+//        NSLog(@"%@",GSYsquare.name);
+//        NSLog(@"-- --");
+//        NSLog(@"%@",square.name);
+    
         // 创建按钮
         GSYMeSquareButton *button = [GSYMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"mainCellBackground"] forState:UIControlStateNormal];
@@ -81,8 +152,14 @@
     [tableView reloadData]; // 重新刷新数据（其实也会重新计算contentSize）
 }
 
+// footera按钮点击事件
 -(void)buttonClick:(GSYMeSquareButton *)button {
-    NSLog(@"%@",button);
+    
+    // 取出模型
+    GSYMeSquare *square = self.allSquares[button.currentTitle];
+    
+    GSYLog(@"%@",square.url);
+
 }
 
 
