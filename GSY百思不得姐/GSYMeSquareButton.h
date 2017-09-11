@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class GSYMeSquare;
+
 @interface GSYMeSquareButton : UIButton
+
+// 方块
+@property(nonatomic,strong) GSYMeSquare *square;
 
 @end

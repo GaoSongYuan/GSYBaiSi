@@ -7,6 +7,8 @@
 //
 
 #import "GSYMeSquareButton.h"
+#import "GSYMeSquare.h"
+#import <SDWebImage/UIButton+WebCache.h>
 
 @implementation GSYMeSquareButton
 
@@ -36,6 +38,13 @@
     self.titleLabel.gsy_height = self.gsy_height - self.imageView.gsy_height - 10;
     self.titleLabel.textColor = [UIColor blackColor];
     
+}
+
+-(void)setSquare:(GSYMeSquare *)square {
+    _square = square;
+    
+    [self setTitle:square.name forState:UIControlStateNormal];
+    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"publish-offline"]];
 }
 
 @end
