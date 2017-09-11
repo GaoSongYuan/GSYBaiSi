@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import "GSYMeSquareButton.h"
+#import "GSYWebViewController.h"
 
 @interface GSYMeFooterView()
 
@@ -67,8 +68,8 @@
     // 创建所有的方块
     for (NSUInteger i = 0; i<count ; i++) {
         
-        // i 位置对应的模型数据
-        GSYMeSquare *square = squares[i];
+//        // i 位置对应的模型数据
+//        GSYMeSquare *square = squares[i];
     
         // 创建按钮
         GSYMeSquareButton *button = [GSYMeSquareButton buttonWithType:UIButtonTypeCustom];
@@ -83,7 +84,7 @@
         button.gsy_height = buttonH; // 此处可以减去0.5，把底部灰色露出来，当做分割线
         
         // 设置数据
-        button.square = square;
+        button.square = squares[i];
         
         // 利用方块的名字作为key，存储方块模型。
         // 通过名字，就能取出模型。
@@ -104,15 +105,24 @@
     
     // 取出模型
 //    GSYMeSquare *square = self.allSquares[button.currentTitle];
-    
-    GSYMeSquare *square = button.square;
-    
+
 //    [@"mod://asdhttpasd" containsString:@"http"];   YES;  包含
 //    [@"mod://asdhttpasd" hasSuffix:@"sd"];  YES;  后缀
 //    [@"mod://asdhttpasd" hasPrefix:@"http"];  NO;  前缀
-    if ([square.url hasPrefix:@"http"]) { // 利用webView加载URL即可
-        NSLog(@"利用webView加载URL");
-    } else if ([square.url hasPrefix:@"mod"]) {
+    
+    NSString *url = button.square.url;
+    if ([url hasPrefix:@"http"]) { // 利用webView加载URL即可
+        GSYWebViewController *webView = [[GSYWebViewController alloc] init];
+        webView.url = url;
+        webView.navigationItem.title = button.currentTitle;
+        
+        // 获得“我”模块对应的导航控制器
+        UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
+//        UINavigationController *nav = tabBarVc.childViewControllers.lastObject;
+        UINavigationController *nav = tabBarVc.selectedViewController; // 选中的控制器
+        [nav pushViewController:webView animated:YES];
+        
+    } else if ([url hasPrefix:@"mod"]) {
         NSLog(@"mod");
     } else {
         NSLog(@"不是http或者mod协议");
