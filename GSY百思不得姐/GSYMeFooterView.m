@@ -12,6 +12,7 @@
 #import <MJExtension/MJExtension.h>
 #import "GSYMeSquareButton.h"
 #import "GSYWebViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface GSYMeFooterView()
 
@@ -112,15 +113,19 @@
     
     NSString *url = button.square.url;
     if ([url hasPrefix:@"http"]) { // 利用webView加载URL即可
-        GSYWebViewController *webView = [[GSYWebViewController alloc] init];
-        webView.url = url;
-        webView.navigationItem.title = button.currentTitle;
+//        GSYWebViewController *webView = [[GSYWebViewController alloc] init];
+//        webView.url = url;
+//        webView.navigationItem.title = button.currentTitle;
+
+        // 使用SFSafariViewController加载Safari网页
+        SFSafariViewController *webView = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
         
         // 获得“我”模块对应的导航控制器
         UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
+        [tabBarVc presentViewController:webView animated:YES completion:nil]; // modal 出Safari形式的webView
 //        UINavigationController *nav = tabBarVc.childViewControllers.lastObject;
-        UINavigationController *nav = tabBarVc.selectedViewController; // 选中的控制器
-        [nav pushViewController:webView animated:YES];
+//        UINavigationController *nav = tabBarVc.selectedViewController; // 选中的控制器
+//        [nav pushViewController:webView animated:YES];
         
     } else if ([url hasPrefix:@"mod"]) {
         NSLog(@"mod");
