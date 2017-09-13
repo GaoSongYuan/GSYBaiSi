@@ -16,6 +16,8 @@
 		E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E46800751F610CC60007214F /* GSYMeSquareButton.m */; };
 		E476D18B1F66986700DF2C6C /* GSYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D1891F66986700DF2C6C /* GSYWebViewController.m */; };
 		E476D18C1F66986700DF2C6C /* GSYWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E476D18A1F66986700DF2C6C /* GSYWebViewController.xib */; };
+		E476D18F1F67842D00DF2C6C /* GSYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */; };
+		E476D1961F69239200DF2C6C /* NSString+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
 		E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3CD41F301794006C6C2E /* Assets.xcassets */; };
@@ -74,6 +76,10 @@
 		E476D1881F66986700DF2C6C /* GSYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYWebViewController.h; sourceTree = "<group>"; };
 		E476D1891F66986700DF2C6C /* GSYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYWebViewController.m; sourceTree = "<group>"; };
 		E476D18A1F66986700DF2C6C /* GSYWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYWebViewController.xib; sourceTree = "<group>"; };
+		E476D18D1F67842D00DF2C6C /* GSYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYSettingViewController.h; sourceTree = "<group>"; };
+		E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYSettingViewController.m; sourceTree = "<group>"; };
+		E476D1941F69239200DF2C6C /* NSString+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GSYExtension.h"; sourceTree = "<group>"; };
+		E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GSYExtension.m"; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FC3CC91F301794006C6C2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4FC3CCB1F301794006C6C2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -295,6 +301,8 @@
 				E4FC3DCD1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m */,
 				E441C7431F5D46B5002615B7 /* UITextField+GSYExtension.h */,
 				E441C7441F5D46B5002615B7 /* UITextField+GSYExtension.m */,
+				E476D1941F69239200DF2C6C /* NSString+GSYExtension.h */,
+				E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -331,6 +339,8 @@
 			children = (
 				E4FC3DB11F3416FB006C6C2E /* GSYMeViewController.h */,
 				E4FC3DB21F3416FB006C6C2E /* GSYMeViewController.m */,
+				E476D18D1F67842D00DF2C6C /* GSYSettingViewController.h */,
+				E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */,
 				E476D1881F66986700DF2C6C /* GSYWebViewController.h */,
 				E476D1891F66986700DF2C6C /* GSYWebViewController.m */,
 				E476D18A1F66986700DF2C6C /* GSYWebViewController.xib */,
@@ -629,6 +639,7 @@
 				E41D781F1F5FC47D00C1A7E7 /* GSYMeSquare.m in Sources */,
 				E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */,
 				E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */,
+				E476D18F1F67842D00DF2C6C /* GSYSettingViewController.m in Sources */,
 				E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */,
 				E441C7451F5D46B5002615B7 /* UITextField+GSYExtension.m in Sources */,
 				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
@@ -638,6 +649,7 @@
 				E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */,
 				E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */,
 				E441C7541F5E6902002615B7 /* GSYConst.m in Sources */,
+				E476D1961F69239200DF2C6C /* NSString+GSYExtension.m in Sources */,
 				E4FC3CFE1F30194B006C6C2E /* GSYTabBarController.m in Sources */,
 				E4FC3DB01F340C22006C6C2E /* UIView+GSYExtension.m in Sources */,
 			);

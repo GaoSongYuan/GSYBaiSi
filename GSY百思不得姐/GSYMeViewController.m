@@ -9,6 +9,7 @@
 #import "GSYMeViewController.h"
 #import "GSYMeCell.h"
 #import "GSYMeFooterView.h"
+#import "GSYSettingViewController.h"
 
 @interface GSYMeViewController ()
 
@@ -53,7 +54,9 @@
 }
 
 -(void)settingClick {
-    GSYLogFunc;
+//    GSYLogFunc;
+    GSYSettingViewController *setVc = [[GSYSettingViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
 }
 
 -(void)moonClick {
@@ -98,6 +101,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     return 44;
+}
+
+// 取消选中
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

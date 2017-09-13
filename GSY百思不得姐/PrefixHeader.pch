@@ -16,6 +16,7 @@
     #import "UIBarButtonItem+GSYExtension.h"
     #import "UITextField+GSYExtension.h"
     #import "GSYConst.h"
+    #import "NSString+GSYExtension.h"
 
     /**** 颜色 ****/
     // 带有透明度的颜色，透明度传值为0-255
