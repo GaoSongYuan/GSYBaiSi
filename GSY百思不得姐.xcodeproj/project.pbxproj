@@ -18,6 +18,7 @@
 		E476D18C1F66986700DF2C6C /* GSYWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E476D18A1F66986700DF2C6C /* GSYWebViewController.xib */; };
 		E476D18F1F67842D00DF2C6C /* GSYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */; };
 		E476D1961F69239200DF2C6C /* NSString+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */; };
+		E4BF17B41F70B5F500A1E71A /* GSYClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
 		E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3CD41F301794006C6C2E /* Assets.xcassets */; };
@@ -80,6 +81,8 @@
 		E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYSettingViewController.m; sourceTree = "<group>"; };
 		E476D1941F69239200DF2C6C /* NSString+GSYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GSYExtension.h"; sourceTree = "<group>"; };
 		E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GSYExtension.m"; sourceTree = "<group>"; };
+		E4BF17B21F70B5F500A1E71A /* GSYClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYClearCacheCell.h; sourceTree = "<group>"; };
+		E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYClearCacheCell.m; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FC3CC91F301794006C6C2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4FC3CCB1F301794006C6C2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				E441C7561F5E6B97002615B7 /* GSYMeFooterView.m */,
 				E46800741F610CC60007214F /* GSYMeSquareButton.h */,
 				E46800751F610CC60007214F /* GSYMeSquareButton.m */,
+				E4BF17B21F70B5F500A1E71A /* GSYClearCacheCell.h */,
+				E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				E441C7571F5E6B97002615B7 /* GSYMeFooterView.m in Sources */,
 				E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */,
 				E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */,
+				E4BF17B41F70B5F500A1E71A /* GSYClearCacheCell.m in Sources */,
 				E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */,
 				E476D18B1F66986700DF2C6C /* GSYWebViewController.m in Sources */,
 				E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */,
