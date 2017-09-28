@@ -27,8 +27,19 @@
             unsigned long long size = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"MP3"].fileSize;
             size += [SDImageCache sharedImageCache].getSize;
             
+            NSString *sizeText = nil;
+            if (size >= 1000 * 1000 * 1000) { // size >= 1GB  pow(10, 9) 10的9次方
+                sizeText = [NSString stringWithFormat:@"%.1fGB",size / 1000.0 / 1000.0 / 1000.0];
+            }else if (size >= 1000 * 1000) { // 1GB > size >= 1MB
+                sizeText = [NSString stringWithFormat:@"%.1fMB",size / 1000.0 / 1000.0];
+            }else if (size >= 1000) { // 1MB > size >= 1KB
+                sizeText = [NSString stringWithFormat:@"%.1fKB",size / 1000.0];
+            }else { // 1KB > size
+                sizeText = [NSString stringWithFormat:@"%zdB",size];
+            }
+            
             // 生成文字
-            NSString *text = [NSString stringWithFormat:@"清除缓存(%zdB)",size];
+            NSString *text = [NSString stringWithFormat:@"清除缓存(%@)",sizeText];
             
             // 回到主线程设置文字
             dispatch_async(dispatch_get_main_queue(), ^{
