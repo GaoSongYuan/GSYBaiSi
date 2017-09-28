@@ -8,6 +8,9 @@
 
 #import "GSYClearCacheCell.h"
 #import <SDWebImage/SDImageCache.h>
+#import <SVProgressHUD.h>
+
+#define GSYCustomCacheFile [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"MP3"]
 
 @implementation GSYClearCacheCell
 
@@ -23,8 +26,12 @@
         
         // 在子线程计算缓存大小
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            // 睡眠两秒
+            [NSThread sleepForTimeInterval:2.0];
+            
             // 获得缓存文件夹路径
-            unsigned long long size = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"MP3"].fileSize;
+            unsigned long long size = GSYCustomCacheFile.fileSize;
             size += [SDImageCache sharedImageCache].getSize;
             
             NSString *sizeText = nil;
@@ -50,9 +57,43 @@
                 // 设置右边箭头
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 箭头
             });
+            
+            // 给cell添加手势监听器
+            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache_GSY)]];
+            
         });
     }
     return self;
+}
+
+// 清除缓存
+-(void)clearCache_GSY {
+    // 弹出指示器
+    [SVProgressHUD showWithStatus:@"正在清除缓存"];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack]; // 灰色蒙版
+    
+    // 删除缓存文件
+    // 删除SDWebImage缓存
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        // 删除自定义缓存
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSFileManager *mgr = [NSFileManager defaultManager];
+            [mgr removeItemAtPath:GSYCustomCacheFile error:nil];
+            [mgr createDirectoryAtPath:GSYCustomCacheFile withIntermediateDirectories:YES attributes:nil error:nil];
+            
+            // 睡眠两秒
+            [NSThread sleepForTimeInterval:2.0];
+            
+            // 回到主线程 - 所有的缓存都清除完毕
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // 隐藏指示器
+                [SVProgressHUD dismiss];
+                
+                // 重新设置文字
+                self.textLabel.text = @"清除缓存(0B)";
+            });
+        });
+    }];
 }
 
 @end

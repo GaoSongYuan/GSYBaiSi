@@ -42,17 +42,6 @@ static NSString * const GSYClearCacheCellId = @"GSYClearCacheCell";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    // 1.确定重用标识
-//    static NSString *ID = @"setting";
-//    
-//    // 2.从缓存池中取出
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//    
-//    // 3.如果空就手动创建
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-//    }
 
     // 取出cell
     GSYClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYClearCacheCellId];
@@ -61,9 +50,10 @@ static NSString * const GSYClearCacheCellId = @"GSYClearCacheCell";
     return cell;
 }
 
-// 取消选中
+#pragma mark - 代理方法
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
+    
 }
 
 @end
