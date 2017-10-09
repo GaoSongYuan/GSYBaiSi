@@ -16,6 +16,7 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
         // 设置cell右边的指示器（用来说明正在处理一些事情）
         UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [loadingView startAnimating];
@@ -23,6 +24,9 @@
         
         // 设置cell默认的文字
         self.textLabel.text = @"清除缓存(正在计算缓存大小...)";
+        
+        // 点击事件禁止掉(代码放置的顺序，会影响字的颜色)
+        self.userInteractionEnabled = NO;
         
         // 在子线程计算缓存大小
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -56,11 +60,13 @@
                 self.accessoryView = nil;
                 // 设置右边箭头
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 箭头
+                
+                // 给cell添加手势监听器
+                [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache_GSY)]];
+                
+                // 恢复点击事件
+                self.userInteractionEnabled = YES;
             });
-            
-            // 给cell添加手势监听器
-            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache_GSY)]];
-            
         });
     }
     return self;
