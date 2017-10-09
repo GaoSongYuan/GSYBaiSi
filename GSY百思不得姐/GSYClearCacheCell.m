@@ -5,6 +5,7 @@
 //  Created by Song on 2017/9/19.
 //  Copyright © 2017年 Song. All rights reserved.
 //
+//  清除缓存
 
 #import "GSYClearCacheCell.h"
 #import <SDWebImage/SDImageCache.h>

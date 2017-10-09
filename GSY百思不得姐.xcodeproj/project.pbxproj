@@ -39,6 +39,7 @@
 		E4FC3E3B1F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FC3E391F3BDE88006C6C2E /* GSYLoginRegisterViewController.xib */; };
 		E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */; };
 		E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3E431F42967D006C6C2E /* GSYLoginRegisterTextField.m */; };
+		E4FF0F8F1F8B097600B7ED40 /* GSYSettingOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FF0F8E1F8B097600B7ED40 /* GSYSettingOtherCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,8 @@
 		E4FC3E3D1F3BE4A6006C6C2E /* GSYQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYQuickLoginButton.m; sourceTree = "<group>"; };
 		E4FC3E421F42967D006C6C2E /* GSYLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYLoginRegisterTextField.h; sourceTree = "<group>"; };
 		E4FC3E431F42967D006C6C2E /* GSYLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYLoginRegisterTextField.m; sourceTree = "<group>"; };
+		E4FF0F8D1F8B097600B7ED40 /* GSYSettingOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYSettingOtherCell.h; sourceTree = "<group>"; };
+		E4FF0F8E1F8B097600B7ED40 /* GSYSettingOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYSettingOtherCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +365,8 @@
 				E46800751F610CC60007214F /* GSYMeSquareButton.m */,
 				E4BF17B21F70B5F500A1E71A /* GSYClearCacheCell.h */,
 				E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */,
+				E4FF0F8D1F8B097600B7ED40 /* GSYSettingOtherCell.h */,
+				E4FF0F8E1F8B097600B7ED40 /* GSYSettingOtherCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -650,6 +655,7 @@
 				E441C7451F5D46B5002615B7 /* UITextField+GSYExtension.m in Sources */,
 				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
 				E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */,
+				E4FF0F8F1F8B097600B7ED40 /* GSYSettingOtherCell.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,
 				E4FC3E3A1F3BDE88006C6C2E /* GSYLoginRegisterViewController.m in Sources */,
 				E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */,

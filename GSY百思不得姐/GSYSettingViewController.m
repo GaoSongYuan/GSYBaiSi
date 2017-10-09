@@ -9,6 +9,7 @@
 #import "GSYSettingViewController.h"
 #import <SDWebImage/SDImageCache.h>
 #import "GSYClearCacheCell.h"
+#import "GSYSettingOtherCell.h"
 
 @interface GSYSettingViewController ()
 
@@ -17,6 +18,7 @@
 @implementation GSYSettingViewController
 
 static NSString * const GSYClearCacheCellId = @"GSYClearCacheCell";
+static NSString * const GSYSettingOtherCellId = @"GSYSettingOtherCell";
 
 -(instancetype)init {
     return [self initWithStyle:UITableViewStyleGrouped];
@@ -30,6 +32,7 @@ static NSString * const GSYClearCacheCellId = @"GSYClearCacheCell";
     
     // 注册
     [self.tableView registerClass:[GSYClearCacheCell class] forCellReuseIdentifier:GSYClearCacheCellId];
+    [self.tableView registerClass:[GSYSettingOtherCell class] forCellReuseIdentifier:GSYSettingOtherCellId];
 }
 
 #pragma mark - 数据源方法
@@ -38,16 +41,21 @@ static NSString * const GSYClearCacheCellId = @"GSYClearCacheCell";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    // 取出cell
-    GSYClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYClearCacheCellId];
-
-    // 返回cell
-    return cell;
+    
+    if (indexPath.row == 0) {
+        return [tableView dequeueReusableCellWithIdentifier:GSYClearCacheCellId];
+    } else {
+        GSYSettingOtherCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYSettingOtherCellId];
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"indexPath.row == 1";
+        }
+        return cell;
+    }
+    
 }
 
 #pragma mark - 代理方法
