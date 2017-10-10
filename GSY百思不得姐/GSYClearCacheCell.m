@@ -29,6 +29,8 @@
         // 点击事件禁止掉(代码放置的顺序，会影响字的颜色)
         self.userInteractionEnabled = NO;
         
+        __weak typeof(self) weakSelf = self;
+        
         // 在子线程计算缓存大小
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
@@ -38,6 +40,9 @@
             // 获得缓存文件夹路径
             unsigned long long size = GSYCustomCacheFile.fileSize;
             size += [SDImageCache sharedImageCache].getSize;
+            
+            // 如果cell已经销毁了，就直接返回
+            if (weakSelf == nil) return;
             
             NSString *sizeText = nil;
             if (size >= 1000 * 1000 * 1000) { // size >= 1GB  pow(10, 9) 10的9次方
@@ -54,19 +59,19 @@
             NSString *text = [NSString stringWithFormat:@"清除缓存(%@)",sizeText];
             
             // 回到主线程设置文字
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{ // block内部是通过弱引用，去引用外面的一个对象的话，block内部就不会对那个对象产生强引用
                 // 设置文字
-                self.textLabel.text = text;
+                weakSelf.textLabel.text = text;
                 // 清空右边的指示器
-                self.accessoryView = nil;
+                weakSelf.accessoryView = nil;
                 // 设置右边箭头
-                self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 箭头
+                weakSelf.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 箭头
                 
                 // 给cell添加手势监听器
-                [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache_GSY)]];
+                [weakSelf addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(clearCache_GSY)]];
                 
                 // 恢复点击事件
-                self.userInteractionEnabled = YES;
+                weakSelf.userInteractionEnabled = YES;
             });
         });
     }
