@@ -46,7 +46,12 @@ static NSString * const GSYSettingOtherCellId = @"GSYSettingOtherCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0) { // 清除缓存的cell
+//        // cell转圈动画细节：(cell重新显示的时候，继续转圈圈)
+//        GSYClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYClearCacheCellId];
+//        UIActivityIndicatorView *loadingView = (UIActivityIndicatorView *)cell.accessoryView;
+//        [loadingView startAnimating];
+//        return cell;
         return [tableView dequeueReusableCellWithIdentifier:GSYClearCacheCellId];
     } else {
         GSYSettingOtherCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYSettingOtherCellId];
@@ -55,7 +60,6 @@ static NSString * const GSYSettingOtherCellId = @"GSYSettingOtherCell";
         }
         return cell;
     }
-    
 }
 
 #pragma mark - 代理方法
