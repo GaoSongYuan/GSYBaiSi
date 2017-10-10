@@ -13,6 +13,9 @@
 @interface GSYEssenceViewController ()
 // 当前选中的按钮
 @property(nonatomic,weak) GSYTitleButton *selectedTitleButton;
+
+// 按钮底部指示器
+@property(nonatomic,weak) UIView *indicatorView;
 @end
 
 @implementation GSYEssenceViewController
@@ -57,7 +60,6 @@
     for (NSUInteger i = 0; i < count; i++) {
         // 创建按钮
         GSYTitleButton *titleButton = [GSYTitleButton buttonWithType:UIButtonTypeCustom];
-        titleButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -66,11 +68,18 @@
         
         // 设置frame
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
-        
-        // 设置按钮颜色
-        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     }
+    
+    // 按钮的选中颜色
+    GSYTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    
+    // 按钮底部的红色指示器
+    UIView *indicatorView = [[UIView alloc] init];
+    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.gsy_height = 2;
+    indicatorView.gsy_y = titlesView.gsy_height - indicatorView.gsy_height;
+    [titlesView addSubview:indicatorView];
+    self.indicatorView = indicatorView;
 }
 
 #pragma mark - 监听点击
@@ -80,10 +89,16 @@
     self.selectedTitleButton.selected = NO;
     titleButton.selected = YES;
     self.selectedTitleButton = titleButton;
+
+    // 按钮底部指示器
+    [UIView animateWithDuration:0.25 animations:^{
+//        // 计算文字宽度
+//        CGFloat titleW = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
+        
+        self.indicatorView.gsy_width = titleButton.titleLabel.gsy_width;
+        self.indicatorView.gsy_centerX = titleButton.gsy_centerX;
+    }];
     
-//    [self.selectedTitleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//    [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    self.selectedTitleButton = titleButton;
     GSYLogFunc
 }
 

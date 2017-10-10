@@ -10,6 +10,18 @@
 
 @implementation GSYTitleButton
 
+-(instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        // 设置按钮颜色
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        // 设置按钮字体大小
+        self.titleLabel.font = [UIFont systemFontOfSize:15];
+    }
+    return self;
+}
+
+
 -(void)setHighlighted:(BOOL)highlighted {
     
 }
