@@ -9,6 +9,11 @@
 
 #import "GSYEssenceViewController.h"
 #import "GSYTitleButton.h"
+#import "GSYAllViewController.h"
+#import "GSYVideoViewController.h"
+#import "GSYVoiceViewController.h"
+#import "GSYPictureViewController.h"
+#import "GSYWordViewController.h"
 
 @interface GSYEssenceViewController ()
 // 当前选中的按钮
@@ -24,6 +29,7 @@
     [super viewDidLoad];
     
     [self setupNav];
+    [self setupChildViewControllers];
     [self setupScrollView];
     [self setupTitlesView];
 }
@@ -39,9 +45,31 @@
 
 // 左右滑动的scrollview
 -(void)setupScrollView {
+    // 不允许自动调整scrollView的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = GSYRandomColor;
     scrollView.frame = self.view.bounds;
+    scrollView.pagingEnabled = YES; // 对scrollView进行分页
+    scrollView.showsHorizontalScrollIndicator = NO; // 关闭水平滚动条的显示
+    scrollView.showsVerticalScrollIndicator = NO; // 关闭垂直滚动条的显示
     [self.view addSubview:scrollView];
+    
+    // 添加所有子控制器的view到scrollView中
+    NSUInteger count = self.childViewControllers.count;
+    for (NSUInteger i = 0; i < count; i++) {
+        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
+        childVcView.gsy_x = i * childVcView.gsy_width;
+        childVcView.gsy_y = 0;
+        childVcView.gsy_height = scrollView.gsy_height;
+        childVcView.backgroundColor = GSYRandomColor;
+        [scrollView addSubview:childVcView];
+        
+        // 内边距
+//        childVcView.contentInset = UIEdgeInsetsMake(35, 0, 0, 0);
+    }
+    scrollView.contentSize = CGSizeMake(count * scrollView.gsy_width, 0); // scrollView只能左右滑动，不能上下滑动，防止跟tableView冲突
 }
 
 // 标签栏
@@ -90,6 +118,21 @@
     firstTitleButton.selected = YES;
     self.selectedTitleButton = firstTitleButton;  //    [self titleClick:firstTitleButton];
 }
+
+// 添加子控制器
+-(void)setupChildViewControllers {
+    GSYAllViewController *all = [[GSYAllViewController alloc] init];
+    [self addChildViewController:all];
+    GSYVideoViewController *video = [[GSYVideoViewController alloc] init];
+    [self addChildViewController:video];
+    GSYVoiceViewController *voice = [[GSYVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    GSYPictureViewController *picture = [[GSYPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    GSYWordViewController *word = [[GSYWordViewController alloc] init];
+    [self addChildViewController:word];
+}
+
 
 #pragma mark - 监听点击
 // 标题栏的点击事件

@@ -19,6 +19,11 @@
 		E476D18F1F67842D00DF2C6C /* GSYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D18E1F67842D00DF2C6C /* GSYSettingViewController.m */; };
 		E476D1961F69239200DF2C6C /* NSString+GSYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */; };
 		E4BD46ED1F8CEDD900538213 /* GSYTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46EC1F8CEDD900538213 /* GSYTitleButton.m */; };
+		E4BD46F01F8DD1D900538213 /* GSYAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46EF1F8DD1D900538213 /* GSYAllViewController.m */; };
+		E4BD46F31F8DD1EC00538213 /* GSYVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46F21F8DD1EC00538213 /* GSYVideoViewController.m */; };
+		E4BD46F61F8DD1FD00538213 /* GSYVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46F51F8DD1FD00538213 /* GSYVoiceViewController.m */; };
+		E4BD46F91F8DD20A00538213 /* GSYPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46F81F8DD20A00538213 /* GSYPictureViewController.m */; };
+		E4BD46FC1F8DD21500538213 /* GSYWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD46FB1F8DD21500538213 /* GSYWordViewController.m */; };
 		E4BF17B41F70B5F500A1E71A /* GSYClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
@@ -85,6 +90,16 @@
 		E476D1951F69239200DF2C6C /* NSString+GSYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GSYExtension.m"; sourceTree = "<group>"; };
 		E4BD46EB1F8CEDD900538213 /* GSYTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYTitleButton.h; sourceTree = "<group>"; };
 		E4BD46EC1F8CEDD900538213 /* GSYTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYTitleButton.m; sourceTree = "<group>"; };
+		E4BD46EE1F8DD1D900538213 /* GSYAllViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYAllViewController.h; sourceTree = "<group>"; };
+		E4BD46EF1F8DD1D900538213 /* GSYAllViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYAllViewController.m; sourceTree = "<group>"; };
+		E4BD46F11F8DD1EC00538213 /* GSYVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYVideoViewController.h; sourceTree = "<group>"; };
+		E4BD46F21F8DD1EC00538213 /* GSYVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYVideoViewController.m; sourceTree = "<group>"; };
+		E4BD46F41F8DD1FD00538213 /* GSYVoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYVoiceViewController.h; sourceTree = "<group>"; };
+		E4BD46F51F8DD1FD00538213 /* GSYVoiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYVoiceViewController.m; sourceTree = "<group>"; };
+		E4BD46F71F8DD20A00538213 /* GSYPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYPictureViewController.h; sourceTree = "<group>"; };
+		E4BD46F81F8DD20A00538213 /* GSYPictureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYPictureViewController.m; sourceTree = "<group>"; };
+		E4BD46FA1F8DD21500538213 /* GSYWordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSYWordViewController.h; sourceTree = "<group>"; };
+		E4BD46FB1F8DD21500538213 /* GSYWordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSYWordViewController.m; sourceTree = "<group>"; };
 		E4BF17B21F70B5F500A1E71A /* GSYClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYClearCacheCell.h; sourceTree = "<group>"; };
 		E4BF17B31F70B5F500A1E71A /* GSYClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYClearCacheCell.m; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -437,6 +452,16 @@
 			children = (
 				E4FC3DBA1F341723006C6C2E /* GSYEssenceViewController.h */,
 				E4FC3DBB1F341723006C6C2E /* GSYEssenceViewController.m */,
+				E4BD46EE1F8DD1D900538213 /* GSYAllViewController.h */,
+				E4BD46EF1F8DD1D900538213 /* GSYAllViewController.m */,
+				E4BD46F11F8DD1EC00538213 /* GSYVideoViewController.h */,
+				E4BD46F21F8DD1EC00538213 /* GSYVideoViewController.m */,
+				E4BD46F41F8DD1FD00538213 /* GSYVoiceViewController.h */,
+				E4BD46F51F8DD1FD00538213 /* GSYVoiceViewController.m */,
+				E4BD46F71F8DD20A00538213 /* GSYPictureViewController.h */,
+				E4BD46F81F8DD20A00538213 /* GSYPictureViewController.m */,
+				E4BD46FA1F8DD21500538213 /* GSYWordViewController.h */,
+				E4BD46FB1F8DD21500538213 /* GSYWordViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -643,6 +668,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BD46FC1F8DD21500538213 /* GSYWordViewController.m in Sources */,
 				E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */,
 				E441C7571F5E6B97002615B7 /* GSYMeFooterView.m in Sources */,
 				E4FC3DCB1F354659006C6C2E /* GSYRecommendFollowViewController.m in Sources */,
@@ -650,19 +676,23 @@
 				E4BF17B41F70B5F500A1E71A /* GSYClearCacheCell.m in Sources */,
 				E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */,
 				E476D18B1F66986700DF2C6C /* GSYWebViewController.m in Sources */,
+				E4BD46F61F8DD1FD00538213 /* GSYVoiceViewController.m in Sources */,
 				E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */,
 				E441C7511F5E678A002615B7 /* GSYMeCell.m in Sources */,
 				E41D781F1F5FC47D00C1A7E7 /* GSYMeSquare.m in Sources */,
 				E4FC3DC81F354573006C6C2E /* GSYNavigationController.m in Sources */,
 				E4FC3DBC1F341723006C6C2E /* GSYEssenceViewController.m in Sources */,
 				E476D18F1F67842D00DF2C6C /* GSYSettingViewController.m in Sources */,
+				E4BD46F91F8DD20A00538213 /* GSYPictureViewController.m in Sources */,
 				E4FC3D0E1F316725006C6C2E /* GSYTabBar.m in Sources */,
 				E441C7451F5D46B5002615B7 /* UITextField+GSYExtension.m in Sources */,
 				E4FC3DB61F34170B006C6C2E /* GSYFollowViewController.m in Sources */,
+				E4BD46F31F8DD1EC00538213 /* GSYVideoViewController.m in Sources */,
 				E4FC3DB31F3416FB006C6C2E /* GSYMeViewController.m in Sources */,
 				E4BD46ED1F8CEDD900538213 /* GSYTitleButton.m in Sources */,
 				E4FF0F8F1F8B097600B7ED40 /* GSYSettingOtherCell.m in Sources */,
 				E4FC3CCA1F301794006C6C2E /* main.m in Sources */,
+				E4BD46F01F8DD1D900538213 /* GSYAllViewController.m in Sources */,
 				E4FC3E3A1F3BDE88006C6C2E /* GSYLoginRegisterViewController.m in Sources */,
 				E4FC3DB91F341715006C6C2E /* GSYNewViewController.m in Sources */,
 				E4FC3E3E1F3BE4A6006C6C2E /* GSYQuickLoginButton.m in Sources */,
@@ -799,6 +829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = "GSY百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "GSY百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -813,6 +844,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = "GSY百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "GSY百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
