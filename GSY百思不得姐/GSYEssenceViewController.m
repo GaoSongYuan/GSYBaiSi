@@ -71,15 +71,24 @@
     }
     
     // 按钮的选中颜色
-    GSYTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    GSYTitleButton *firstTitleButton = titlesView.subviews.firstObject;
     
     // 按钮底部的红色指示器
     UIView *indicatorView = [[UIView alloc] init];
-    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
     indicatorView.gsy_height = 2;
     indicatorView.gsy_y = titlesView.gsy_height - indicatorView.gsy_height;
     [titlesView addSubview:indicatorView];
     self.indicatorView = indicatorView;
+    
+    // 立刻根据文字内容算出label的宽度
+    [firstTitleButton.titleLabel sizeToFit];
+    indicatorView.gsy_width = firstTitleButton.titleLabel.gsy_width;
+    indicatorView.gsy_centerX = firstTitleButton.gsy_centerX;  // 先算出第一个按钮下方的指示器，就不会出现动画，立刻会出现指示器
+    
+    // 默认情况：选中最前面的标题按钮
+    firstTitleButton.selected = YES;
+    self.selectedTitleButton = firstTitleButton;  //    [self titleClick:firstTitleButton];
 }
 
 #pragma mark - 监听点击
