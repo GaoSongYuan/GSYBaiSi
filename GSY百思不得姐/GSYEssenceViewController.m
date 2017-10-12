@@ -15,12 +15,15 @@
 #import "GSYPictureViewController.h"
 #import "GSYWordViewController.h"
 
-@interface GSYEssenceViewController ()
+@interface GSYEssenceViewController () <UIScrollViewDelegate>
+
 // 当前选中的按钮
 @property(nonatomic,weak) GSYTitleButton *selectedTitleButton;
-
 // 按钮底部指示器
 @property(nonatomic,weak) UIView *indicatorView;
+// UIScrollView
+@property(nonatomic,weak) UIScrollView *scrollView;
+
 @end
 
 @implementation GSYEssenceViewController
@@ -55,25 +58,10 @@
     scrollView.pagingEnabled = YES; // 对scrollView进行分页
     scrollView.showsHorizontalScrollIndicator = NO; // 关闭水平滚动条的显示
     scrollView.showsVerticalScrollIndicator = NO; // 关闭垂直滚动条的显示
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.gsy_width, 0); // scrollView只能左右滑动，不能上下滑动，防止跟tableView冲突
+    self.scrollView = scrollView;
+    scrollView.delegate = self; // 代理
     [self.view addSubview:scrollView];
-    
-    // 添加所有子控制器的view到scrollView中
-    NSUInteger count = self.childViewControllers.count;
-    for (NSUInteger i = 0; i < count; i++) {
-        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
-        childVcView.gsy_x = i * childVcView.gsy_width;
-        childVcView.gsy_y = 0;
-        childVcView.gsy_height = scrollView.gsy_height;
-        childVcView.backgroundColor = GSYRandomColor;
-        [scrollView addSubview:childVcView];
-
-        // 内边距
-        childVcView.contentInset = UIEdgeInsetsMake(35 + 64, 0, 49, 0);
-
-        // 滚动条
-        childVcView.scrollIndicatorInsets = childVcView.contentInset;
-    }
-    scrollView.contentSize = CGSizeMake(count * scrollView.gsy_width, 0); // scrollView只能左右滑动，不能上下滑动，防止跟tableView冲突
 }
 
 // 标签栏
@@ -92,6 +80,7 @@
     for (NSUInteger i = 0; i < count; i++) {
         // 创建按钮
         GSYTitleButton *titleButton = [GSYTitleButton buttonWithType:UIButtonTypeCustom];
+        titleButton.tag = i;
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -148,18 +137,47 @@
 
     // 按钮底部指示器
     [UIView animateWithDuration:0.25 animations:^{
-//        // 计算文字宽度
-//        CGFloat titleW = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
-        
         self.indicatorView.gsy_width = titleButton.titleLabel.gsy_width;
         self.indicatorView.gsy_centerX = titleButton.gsy_centerX;
     }];
     
-    GSYLogFunc
+    // 让UIScrollView滚动带对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = titleButton.tag * self.scrollView.gsy_width;
+    [self.scrollView setContentOffset:offset animated:YES];
 }
 
 // navigationbar 左侧的菜单栏按钮点击事件
 -(void)leftClick {
     GSYLogFunc;
 }
+
+#pragma mark - UIScrollViewDelegate
+// 监听停止滚动
+// 手动滑动停止滚动时：
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView { }
+
+// 自动滑动（即点击了按钮）停止滚动时：
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    // 子控制器的索引
+    NSUInteger index = scrollView.contentOffset.x / scrollView.gsy_width;
+    
+    // 取出子控制器
+    UIViewController *childVc = self.childViewControllers[index];
+    childVc.view.gsy_y = 0;
+    childVc.view.gsy_x = index * scrollView.gsy_width;
+    childVc.view.gsy_width = scrollView.gsy_width;
+    childVc.view.gsy_height = scrollView.gsy_height;
+    [scrollView addSubview:childVc.view];
+    
+//    // 内边距
+//    childVc.contentInset = UIEdgeInsetsMake(35 + 64, 0, 49, 0);
+//    
+//    // 滚动条
+//    childVc.scrollIndicatorInsets = childVcView.contentInset;
+    
+}
+
+
+
 @end
