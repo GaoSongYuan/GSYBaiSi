@@ -46,6 +46,9 @@
 // 左右滑动的scrollview
 -(void)setupScrollView {
     
+    // 不允许自动调整
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = GSYRandomColor;
     scrollView.frame = self.view.bounds;
@@ -65,7 +68,7 @@
         [scrollView addSubview:childVcView];
 
         // 内边距
-        childVcView.contentInset = UIEdgeInsetsMake(35, 0, 64+49, 0);
+        childVcView.contentInset = UIEdgeInsetsMake(35 + 64, 0, 49, 0);
 
         // 滚动条
         childVcView.scrollIndicatorInsets = childVcView.contentInset;
