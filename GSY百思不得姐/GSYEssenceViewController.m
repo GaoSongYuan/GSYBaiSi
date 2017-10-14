@@ -23,6 +23,8 @@
 @property(nonatomic,weak) UIView *indicatorView;
 // UIScrollView
 @property(nonatomic,weak) UIScrollView *scrollView;
+// 标题栏
+@property(nonatomic,weak) UIView *titleView;
 
 @end
 
@@ -31,10 +33,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupNav];
-    [self setupChildViewControllers];
-    [self setupScrollView];
-    [self setupTitlesView];
+    [self setupNav];// 背景色标题等 navgationBar
+    [self setupChildViewControllers];// 添加子控制器
+    [self setupScrollView];// 左右滑动的scrollview
+    [self setupTitlesView];// 标签栏
+    
+    [self addChildVcView]; // 默认添加了一个子控制器的view（“全部”控制器）
 }
 
 // 背景色标题等 navgationBar
@@ -70,6 +74,7 @@
     UIView *titlesView = [[UIView alloc] init];
     titlesView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.4];
     titlesView.frame = CGRectMake(0, 64, self.view.gsy_width, 35);
+    self.titleView = titlesView;
     [self.view addSubview:titlesView];
     
     // 添加标题
@@ -141,7 +146,7 @@
         self.indicatorView.gsy_centerX = titleButton.gsy_centerX;
     }];
     
-    // 让UIScrollView滚动带对应位置
+    // 让UIScrollView滚动到对应位置
     CGPoint offset = self.scrollView.contentOffset;
     offset.x = titleButton.tag * self.scrollView.gsy_width;
     [self.scrollView setContentOffset:offset animated:YES];
@@ -152,30 +157,55 @@
     GSYLogFunc;
 }
 
-#pragma mark - UIScrollViewDelegate
-// 监听停止滚动
-// 手动滑动停止滚动时：
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView { }
-
-// 自动滑动（即点击了按钮）停止滚动时：
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+#pragma mark - 添加子控制器的view
+-(void)addChildVcView {
     // 子控制器的索引
-    NSUInteger index = scrollView.contentOffset.x / scrollView.gsy_width;
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.gsy_width;
     
     // 取出子控制器
     UIViewController *childVc = self.childViewControllers[index];
-    childVc.view.gsy_y = 0;
-    childVc.view.gsy_x = index * scrollView.gsy_width;
-    childVc.view.gsy_width = scrollView.gsy_width;
-    childVc.view.gsy_height = scrollView.gsy_height;
-    [scrollView addSubview:childVc.view];
     
-//    // 内边距
-//    childVc.contentInset = UIEdgeInsetsMake(35 + 64, 0, 49, 0);
-//    
-//    // 滚动条
-//    childVc.scrollIndicatorInsets = childVcView.contentInset;
+    if (childVc.view.superview) return; // 如果已经加载过一次，就直接返回
+//    if (childVc.view.window) return; // 同上
+//    if ([childVc isViewLoaded]) return; // 同上
     
+//    childVc.view.gsy_y = 0;
+//    childVc.view.gsy_x = index * self.scrollView.gsy_width;
+//    childVc.view.gsy_width = self.scrollView.gsy_width;
+//    childVc.view.gsy_height = self.scrollView.gsy_height;
+    
+//    childVc.view.gsy_x = self.scrollView.contentOffset.x;
+//    childVc.view.gsy_y = self.scrollView.contentOffset.y;
+//    childVc.view.gsy_width = self.scrollView.gsy_width;
+//    childVc.view.gsy_height = self.scrollView.gsy_height;
+    
+//    childVc.view.gsy_x = self.scrollView.bounds.origin.x;
+//    childVc.view.gsy_y = self.scrollView.bounds.origin.y;
+//    childVc.view.gsy_width = self.scrollView.bounds.size.width;
+//    childVc.view.gsy_height = self.scrollView.bounds.size.height;
+    
+    childVc.view.frame = self.scrollView.bounds;
+    
+    [self.scrollView addSubview:childVc.view];
+}
+
+#pragma mark - UIScrollViewDelegate
+// 监听停止滚动
+// 手动滑动停止滚动时：
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    // 选中/点击对应的按钮
+    NSUInteger index = scrollView.contentOffset.x / scrollView.gsy_width;
+    GSYTitleButton *titleButton = self.titleView.subviews[index];
+    [self titleClick:titleButton];
+    
+    // 添加子控制器
+    [self addChildVcView];
+}
+
+// 自动滑动（即点击了按钮）停止滚动时：
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self addChildVcView];
 }
 
 

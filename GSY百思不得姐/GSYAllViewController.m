@@ -19,6 +19,10 @@
     [super viewDidLoad];
     
     GSYLogFunc;
+    
+    // tableView的调整
+    self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
 }
 
 
