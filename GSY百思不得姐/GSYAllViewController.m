@@ -31,11 +31,21 @@
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
     
-    [self loadNewTopics];
+//    [self loadNewTopics];
+    [self setupRefresh];
+}
+
+// 下拉刷新【刷新控件】
+-(void)setupRefresh {
+    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    [control addTarget:self action:@selector(loadNewTopics:) forControlEvents:UIControlEventValueChanged];
+//    [control beginRefreshing];
+    [self loadNewTopics:control];
+    [self.tableView addSubview:control];
 }
 
 #pragma mark - 加载最新的帖子数据
--(void)loadNewTopics {
+-(void)loadNewTopics:(UIRefreshControl *)control {
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -53,8 +63,14 @@
         // 刷新表格
         [self.tableView reloadData];
         
+        // 让【刷新控件】结束刷新
+        [control endRefreshing];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败 - %@",error);
+        
+        // 让【刷新控件】结束刷新
+        [control endRefreshing];
     }];
 }
 
