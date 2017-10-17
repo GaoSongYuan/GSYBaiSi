@@ -17,6 +17,8 @@
 
 /** 所有的帖子数据 **/
 @property(nonatomic,strong) NSArray<XMGTopic *> *topics;
+/** 下拉刷新的提示文字 **/
+@property(nonatomic,weak) UILabel *label;
 
 @end
 
@@ -31,21 +33,29 @@
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
     
-//    [self loadNewTopics];
     [self setupRefresh];
 }
 
-// 下拉刷新【刷新控件】
+// 下拉刷新
 -(void)setupRefresh {
-    UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    [control addTarget:self action:@selector(loadNewTopics:) forControlEvents:UIControlEventValueChanged];
-//    [control beginRefreshing];
-    [self loadNewTopics:control];
-    [self.tableView addSubview:control];
+    UIView *headerView = [[UIView alloc] init];
+    headerView.gsy_height = 80;
+    headerView.gsy_width = self.tableView.gsy_width;
+    headerView.gsy_y = -80;
+    headerView.backgroundColor = [UIColor lightGrayColor];
+    [self.tableView addSubview:headerView];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"下拉可以刷新";
+    [label sizeToFit];
+    label.center = CGPointMake(headerView.gsy_width * 0.5, headerView.gsy_height * 0.5);
+    [headerView addSubview:label];
+    
+    self.label = label;
 }
 
 #pragma mark - 加载最新的帖子数据
--(void)loadNewTopics:(UIRefreshControl *)control {
+-(void)loadNewTopics {
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -63,14 +73,8 @@
         // 刷新表格
         [self.tableView reloadData];
         
-        // 让【刷新控件】结束刷新
-        [control endRefreshing];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败 - %@",error);
-        
-        // 让【刷新控件】结束刷新
-        [control endRefreshing];
     }];
 }
 
@@ -105,6 +109,33 @@
     
 //    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd",[self class],indexPath.row];
     return cell;
+}
+
+#pragma mark - 代理方法
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentInset.top == 179) return;
+    if (scrollView.contentOffset.y <= -179.0) {
+        self.label.text = @"松开即可刷新";
+    }else {
+        self.label.text = @"下拉可以刷新";
+    }
+}
+
+// 手松开 停止拖拽
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (scrollView.contentOffset.y <=179.0) { // 进入下拉刷新状态
+        self.label.text = @"正在刷新";
+        UIEdgeInsets inset = scrollView.contentInset;
+        inset.top = 179;
+        scrollView.contentInset = inset;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            UIEdgeInsets inset = scrollView.contentInset;
+            inset.top = 99;
+            scrollView.contentInset = inset;
+        });
+    }
 }
 
 @end

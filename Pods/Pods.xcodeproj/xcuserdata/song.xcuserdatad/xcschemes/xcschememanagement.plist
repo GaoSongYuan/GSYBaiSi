@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GSY百思不得姐.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>12C717A3E08AF6AD44434710981A6D92</key>
+		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2267FDE732752C81FAE9F514E7E6F0EB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7013C5FBA9A10B4364028087CE5385C1</key>
+		<key>94352D4C0A77A2A729269861AE9A73C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -53,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E6EE67B554DDD5B60AE8589D3AA1FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E943CFF9EB6D94FFB15FC5AB4B12A7F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
