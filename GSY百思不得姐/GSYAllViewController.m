@@ -12,7 +12,8 @@
 #import "XMGTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
-#import <MJRefresh.h>
+//#import <MJRefresh.h>
+#import "GSYRefreshHeader.h"
 
 @interface GSYAllViewController ()
 
@@ -39,29 +40,11 @@
 
 // 下拉刷新
 -(void)setupRefresh {
-//    UIView *headerView = [[UIView alloc] init];
-//    headerView.gsy_height = 80;
-//    headerView.gsy_width = self.tableView.gsy_width;
-//    headerView.gsy_y = -80;
-//    headerView.backgroundColor = [UIColor lightGrayColor];
-//    [self.tableView addSubview:headerView];
-//    
-//    UILabel *label = [[UILabel alloc] init];
-//    label.text = @"下拉可以刷新";
-//    [label sizeToFit];
-//    label.center = CGPointMake(headerView.gsy_width * 0.5, headerView.gsy_height * 0.5);
-//    [headerView addSubview:label];
-//    
-//    self.label = label;
     
-//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        GSYLogFunc;
-//    }];
-
-    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
-    mj_header.automaticallyChangeAlpha = YES;
-    mj_header.lastUpdatedTimeLabel.hidden = YES; // 隐藏时间
-    self.tableView.mj_header = mj_header;
+    self.tableView.mj_header = [GSYRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    
+    // 一进入界面就刷新
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - 加载最新的帖子数据
@@ -95,10 +78,6 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 2;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 服务器返回多少个帖子，这里就有多少行cell
     return self.topics.count;
@@ -124,31 +103,5 @@
     return cell;
 }
 
-#pragma mark - 代理方法
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if (scrollView.contentInset.top == 179) return;
-//    if (scrollView.contentOffset.y <= -179.0) {
-//        self.label.text = @"松开即可刷新";
-//    }else {
-//        self.label.text = @"下拉可以刷新";
-//    }
-//}
-
-// 手松开 停止拖拽
-//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    if (scrollView.contentOffset.y <=179.0) { // 进入下拉刷新状态
-//        self.label.text = @"正在刷新";
-//        UIEdgeInsets inset = scrollView.contentInset;
-//        inset.top = 179;
-//        scrollView.contentInset = inset;
-//        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            
-//            UIEdgeInsets inset = scrollView.contentInset;
-//            inset.top = 99;
-//            scrollView.contentInset = inset;
-//        });
-//    }
-//}
 
 @end
