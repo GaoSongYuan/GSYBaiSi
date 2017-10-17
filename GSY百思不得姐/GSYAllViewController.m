@@ -12,6 +12,7 @@
 #import "XMGTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
+#import <MJRefresh.h>
 
 @interface GSYAllViewController ()
 
@@ -38,20 +39,29 @@
 
 // 下拉刷新
 -(void)setupRefresh {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.gsy_height = 80;
-    headerView.gsy_width = self.tableView.gsy_width;
-    headerView.gsy_y = -80;
-    headerView.backgroundColor = [UIColor lightGrayColor];
-    [self.tableView addSubview:headerView];
+//    UIView *headerView = [[UIView alloc] init];
+//    headerView.gsy_height = 80;
+//    headerView.gsy_width = self.tableView.gsy_width;
+//    headerView.gsy_y = -80;
+//    headerView.backgroundColor = [UIColor lightGrayColor];
+//    [self.tableView addSubview:headerView];
+//    
+//    UILabel *label = [[UILabel alloc] init];
+//    label.text = @"下拉可以刷新";
+//    [label sizeToFit];
+//    label.center = CGPointMake(headerView.gsy_width * 0.5, headerView.gsy_height * 0.5);
+//    [headerView addSubview:label];
+//    
+//    self.label = label;
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"下拉可以刷新";
-    [label sizeToFit];
-    label.center = CGPointMake(headerView.gsy_width * 0.5, headerView.gsy_height * 0.5);
-    [headerView addSubview:label];
-    
-    self.label = label;
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        GSYLogFunc;
+//    }];
+
+    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    mj_header.automaticallyChangeAlpha = YES;
+    mj_header.lastUpdatedTimeLabel.hidden = YES; // 隐藏时间
+    self.tableView.mj_header = mj_header;
 }
 
 #pragma mark - 加载最新的帖子数据
@@ -73,8 +83,13 @@
         // 刷新表格
         [self.tableView reloadData];
         
+        // 结束刷新
+        [self.tableView.mj_header endRefreshing];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败 - %@",error);
+        // 结束刷新
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -106,36 +121,34 @@
     cell.detailTextLabel.text = topic.text;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd",[self class],indexPath.row];
     return cell;
 }
 
 #pragma mark - 代理方法
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentInset.top == 179) return;
-    if (scrollView.contentOffset.y <= -179.0) {
-        self.label.text = @"松开即可刷新";
-    }else {
-        self.label.text = @"下拉可以刷新";
-    }
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    if (scrollView.contentInset.top == 179) return;
+//    if (scrollView.contentOffset.y <= -179.0) {
+//        self.label.text = @"松开即可刷新";
+//    }else {
+//        self.label.text = @"下拉可以刷新";
+//    }
+//}
 
 // 手松开 停止拖拽
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (scrollView.contentOffset.y <=179.0) { // 进入下拉刷新状态
-        self.label.text = @"正在刷新";
-        UIEdgeInsets inset = scrollView.contentInset;
-        inset.top = 179;
-        scrollView.contentInset = inset;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UIEdgeInsets inset = scrollView.contentInset;
-            inset.top = 99;
-            scrollView.contentInset = inset;
-        });
-    }
-}
+//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    if (scrollView.contentOffset.y <=179.0) { // 进入下拉刷新状态
+//        self.label.text = @"正在刷新";
+//        UIEdgeInsets inset = scrollView.contentInset;
+//        inset.top = 179;
+//        scrollView.contentInset = inset;
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            
+//            UIEdgeInsets inset = scrollView.contentInset;
+//            inset.top = 99;
+//            scrollView.contentInset = inset;
+//        });
+//    }
+//}
 
 @end
