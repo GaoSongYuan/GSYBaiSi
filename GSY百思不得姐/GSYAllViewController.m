@@ -14,13 +14,16 @@
 #import <UIImageView+WebCache.h>
 //#import <MJRefresh.h>
 #import "GSYRefreshHeader.h"
+#import "GSYRefreshFooter.h"
 
 @interface GSYAllViewController ()
 
 /** 所有的帖子数据 **/
-@property(nonatomic,strong) NSArray<XMGTopic *> *topics;
+@property(nonatomic,strong) NSMutableArray<XMGTopic *> *topics;
 /** 下拉刷新的提示文字 **/
 @property(nonatomic,weak) UILabel *label;
+/** maxtime : 用来加载下一页数据 **/
+@property(nonatomic,copy) NSString *maxtime;
 
 @end
 
@@ -28,8 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    GSYLogFunc;
     
     // tableView的调整
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
@@ -41,13 +42,19 @@
 // 下拉刷新
 -(void)setupRefresh {
     
+    // 下拉刷新
     self.tableView.mj_header = [GSYRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
-    
     // 一进入界面就刷新
     [self.tableView.mj_header beginRefreshing];
+    
+    // 上拉加载更多数据
+    self.tableView.mj_footer = [GSYRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 
 #pragma mark - 加载最新的帖子数据
+/**
+ *   下拉加载最新数据
+ */
 -(void)loadNewTopics {
     
     // 参数
@@ -58,10 +65,13 @@
     // 请求 其中 responseObject是plist文件中的最大的字典
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        // 存储maxtime（方便用来加载下一页数据）
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
         // 一个数组，里面放着模型
         // 将list这个字典数组 转成 装着模型的模型数组
         NSArray *topics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]; // 从responseObject这个大的字典里面，通过key-list取出
-        self.topics = topics;
+        self.topics = (NSMutableArray *)topics;
         
         // 刷新表格
         [self.tableView reloadData];
@@ -73,6 +83,39 @@
         NSLog(@"请求失败 - %@",error);
         // 结束刷新
         [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+/**
+ *   上拉加载更多数据
+ */
+-(void)loadMoreTopics {
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"data";
+    params[@"maxtime"] = self.maxtime;
+    
+    // 请求
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 存储maxtime（方便用来加载下一页数据）
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
+        // 字典数组 -> 模型数组
+        NSArray *moreTopics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.topics addObjectsFromArray:moreTopics];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新
+        [self.tableView.mj_footer endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败 - %@",error);
+        // 结束刷新
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
