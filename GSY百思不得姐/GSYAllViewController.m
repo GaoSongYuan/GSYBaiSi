@@ -24,10 +24,19 @@
 @property(nonatomic,weak) UILabel *label;
 /** maxtime : 用来加载下一页数据 **/
 @property(nonatomic,copy) NSString *maxtime;
+/** 任务管理者 **/
+@property(nonatomic,strong) AFHTTPSessionManager *manager; // 下拉和上拉都用同一个manager，统一管理
 
 @end
 
 @implementation GSYAllViewController
+
+-(AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,13 +66,24 @@
  */
 -(void)loadNewTopics {
     
+    // 取消其他请求
+    // self.manager.tasks 数组中装着manager的所有任务
+    // 让数组中的所有对象，都执行 cancel 方法
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)]; // 当任务被取消，会来到 failure这个block，会进行 结束刷新 的代码
+    
+//    for (NSURLSessionTask *task in self.manager.tasks) {
+//        [task cancel];
+//    }
+    
+//    [self.manager invalidateSessionCancelingTasks:YES]; // 取消所有任务 + 关闭NSURLSession
+    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     
     // 请求 其中 responseObject是plist文件中的最大的字典
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 存储maxtime（方便用来加载下一页数据）
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -80,6 +100,11 @@
         [self.tableView.mj_header endRefreshing];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error.code == NSURLErrorCancelled) { // 错误代码：-999
+            NSLog(@"请求失败原因：取消了");
+        }else {
+            NSLog(@"请求失败 - %ld",error.code);
+        }
         NSLog(@"请求失败 - %@",error);
         // 结束刷新
         [self.tableView.mj_header endRefreshing];
@@ -90,6 +115,10 @@
  *   上拉加载更多数据
  */
 -(void)loadMoreTopics {
+    
+    // 取消其他请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)]; // 让请求停止
+    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
@@ -97,7 +126,7 @@
     params[@"maxtime"] = self.maxtime;
     
     // 请求
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 存储maxtime（方便用来加载下一页数据）
         self.maxtime = responseObject[@"info"][@"maxtime"];
