@@ -8,7 +8,8 @@
 
 #import "GSYMeFooterView.h"
 #import "GSYMeSquare.h"
-#import <AFNetworking/AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
+#import "GSYHTTPSessionManager.h"
 #import <MJExtension/MJExtension.h>
 #import "GSYMeSquareButton.h"
 #import "GSYWebViewController.h"
@@ -40,7 +41,7 @@
         params[@"c"] = @"topic";
         
         // 请求
-        AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+        GSYHTTPSessionManager *session = [GSYHTTPSessionManager manager];
         [session GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
             
             // 字典数组 -> 模型数组

@@ -8,7 +8,8 @@
 //  全部
 
 #import "GSYAllViewController.h"
-#import <AFNetworking.h>
+#import "GSYHTTPSessionManager.h"
+//#import <AFNetworking.h>
 #import "XMGTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
@@ -25,15 +26,15 @@
 /** maxtime : 用来加载下一页数据 **/
 @property(nonatomic,copy) NSString *maxtime;
 /** 任务管理者 **/
-@property(nonatomic,strong) AFHTTPSessionManager *manager; // 下拉和上拉都用同一个manager，统一管理
+@property(nonatomic,strong) GSYHTTPSessionManager *manager; // 下拉和上拉都用同一个manager，统一管理
 
 @end
 
 @implementation GSYAllViewController
 
--(AFHTTPSessionManager *)manager {
+-(GSYHTTPSessionManager *)manager {
     if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
+        _manager = [GSYHTTPSessionManager manager];
     }
     return _manager;
 }
