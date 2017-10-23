@@ -28,6 +28,8 @@
 		E4E2063E1F95E8F20028383C /* GSYRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E2063D1F95E8F20028383C /* GSYRefreshHeader.m */; };
 		E4E206411F962D010028383C /* GSYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E206401F962D010028383C /* GSYRefreshFooter.m */; };
 		E4E206441F96FA4C0028383C /* GSYHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E206431F96FA4C0028383C /* GSYHTTPSessionManager.m */; };
+		E4E206471F9749870028383C /* GSYTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E206461F9749870028383C /* GSYTopicCell.m */; };
+		E4E2064B1F9DF6380028383C /* XMGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E2064A1F9DF6380028383C /* XMGTopicCell.xib */; };
 		E4E5D5531F94CA49005ED08A /* XMGTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E5D5521F94CA49005ED08A /* XMGTopic.m */; };
 		E4FC3CCA1F301794006C6C2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CC91F301794006C6C2E /* main.m */; };
 		E4FC3CCD1F301794006C6C2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FC3CCC1F301794006C6C2E /* AppDelegate.m */; };
@@ -112,6 +114,9 @@
 		E4E206401F962D010028383C /* GSYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYRefreshFooter.m; sourceTree = "<group>"; };
 		E4E206421F96FA4C0028383C /* GSYHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYHTTPSessionManager.h; sourceTree = "<group>"; };
 		E4E206431F96FA4C0028383C /* GSYHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYHTTPSessionManager.m; sourceTree = "<group>"; };
+		E4E206451F9749870028383C /* GSYTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYTopicCell.h; sourceTree = "<group>"; };
+		E4E206461F9749870028383C /* GSYTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTopicCell.m; sourceTree = "<group>"; };
+		E4E2064A1F9DF6380028383C /* XMGTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicCell.xib; sourceTree = "<group>"; };
 		E4E5D5511F94CA49005ED08A /* XMGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopic.h; sourceTree = "<group>"; };
 		E4E5D5521F94CA49005ED08A /* XMGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopic.m; sourceTree = "<group>"; };
 		E4FC3CC51F301794006C6C2E /* GSY百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSY百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +494,9 @@
 			children = (
 				E4BD46EB1F8CEDD900538213 /* GSYTitleButton.h */,
 				E4BD46EC1F8CEDD900538213 /* GSYTitleButton.m */,
+				E4E206451F9749870028383C /* GSYTopicCell.h */,
+				E4E206461F9749870028383C /* GSYTopicCell.m */,
+				E4E2064A1F9DF6380028383C /* XMGTopicCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E2064B1F9DF6380028383C /* XMGTopicCell.xib in Resources */,
 				E4FC3CD51F301794006C6C2E /* Assets.xcassets in Resources */,
 				E476D18C1F66986700DF2C6C /* GSYWebViewController.xib in Resources */,
 				E4FC3E2E1F3A8C77006C6C2E /* GSYFollowViewController.xib in Resources */,
@@ -696,6 +705,7 @@
 				E4FC3E441F42967D006C6C2E /* GSYLoginRegisterTextField.m in Sources */,
 				E4BF17B41F70B5F500A1E71A /* GSYClearCacheCell.m in Sources */,
 				E4FC3DCE1F3547EC006C6C2E /* UIBarButtonItem+GSYExtension.m in Sources */,
+				E4E206471F9749870028383C /* GSYTopicCell.m in Sources */,
 				E476D18B1F66986700DF2C6C /* GSYWebViewController.m in Sources */,
 				E4BD46F61F8DD1FD00538213 /* GSYVoiceViewController.m in Sources */,
 				E46800761F610CC60007214F /* GSYMeSquareButton.m in Sources */,

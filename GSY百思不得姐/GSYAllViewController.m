@@ -45,6 +45,7 @@
     // tableView的调整
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
+    self.tableView.backgroundColor = GSYCommonBgColor;
     
     [self setupRefresh];
 }
@@ -84,7 +85,7 @@
     params[@"c"] = @"data";
     
     // 请求 其中 responseObject是plist文件中的最大的字典
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:GSYCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 存储maxtime（方便用来加载下一页数据）
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -127,7 +128,7 @@
     params[@"maxtime"] = self.maxtime;
     
     // 请求
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:GSYCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 存储maxtime（方便用来加载下一页数据）
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -164,7 +165,6 @@
     // 3.如果空就手动创建
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = GSYRandomColor;
     }
     
     // 4.显示数据

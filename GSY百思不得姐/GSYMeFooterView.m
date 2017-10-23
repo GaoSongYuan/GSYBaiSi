@@ -42,7 +42,7 @@
         
         // 请求
         GSYHTTPSessionManager *session = [GSYHTTPSessionManager manager];
-        [session GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+        [session GET:GSYCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
             
             // 字典数组 -> 模型数组
             NSArray *squares = [GSYMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
