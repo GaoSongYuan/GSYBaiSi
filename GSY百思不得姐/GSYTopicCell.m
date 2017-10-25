@@ -28,6 +28,8 @@
 
 @implementation GSYTopicCell
 
+
+
 -(void)setTopic:(XMGTopic *)topic {
     
     _topic = topic;
@@ -37,11 +39,45 @@
     self.nameLabel.text = topic.name;
     self.createdAtLabel.text = topic.created_at;
     self.text_label.text = topic.text;
-    [self.dingButton setTitle:[NSString stringWithFormat:@"%zd",topic.ding] forState:UIControlStateNormal];
-    [self.caiButton setTitle:[NSString stringWithFormat:@"%zd",topic.cai] forState:UIControlStateNormal];
-    [self.repostButton setTitle:[NSString stringWithFormat:@"%zd",topic.repost] forState:UIControlStateNormal];
-    [self.commentButton setTitle:[NSString stringWithFormat:@"%zd",topic.comment] forState:UIControlStateNormal];
     
+   
+//    if (topic.ding >= 10000) {
+//        [self.dingButton setTitle:[NSString stringWithFormat:@"%.1f万",topic.ding/10000.0] forState:UIControlStateNormal];
+//    } else if (topic.ding > 0) {
+//        [self.dingButton setTitle:[NSString stringWithFormat:@"%zd",topic.ding] forState:UIControlStateNormal];
+//    } else {
+//        [self.dingButton setTitle:@"顶" forState:UIControlStateNormal];
+//    }
+
+    // 设置按钮的数字变化
+    [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
+    [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
+    [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
+    [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
+    
+//    [self.dingButton setTitle:[NSString stringWithFormat:@"%zd",topic.ding] forState:UIControlStateNormal];
+//    [self.caiButton setTitle:[NSString stringWithFormat:@"%zd",topic.cai] forState:UIControlStateNormal];
+//    [self.repostButton setTitle:[NSString stringWithFormat:@"%zd",topic.repost] forState:UIControlStateNormal];
+//    [self.commentButton setTitle:[NSString stringWithFormat:@"%zd",topic.comment] forState:UIControlStateNormal];
+    
+}
+
+
+/**
+ 设置按钮的数字变化
+
+ @param button 按钮
+ @param number 数字
+ @param placeholder 占位文字
+ */
+-(void)setupButton:(UIButton *)button number:(NSInteger)number placeholder:(NSString *)placeholder{
+    if (number >= 10000) {
+        [button setTitle:[NSString stringWithFormat:@"%.1f万",number/10000.0] forState:UIControlStateNormal];
+    } else if (number > 0) {
+        [button setTitle:[NSString stringWithFormat:@"%zd",number] forState:UIControlStateNormal];
+    } else {
+        [button setTitle:placeholder forState:UIControlStateNormal];
+    }
 }
 
 - (void)awakeFromNib {
@@ -51,8 +87,6 @@
 
 // 设置cell的frame
 -(void)setFrame:(CGRect)frame {
-
-    
 //    frame.origin.x += GSYMargin; // 左边间距 10
 //    frame.size.width -= 2 * GSYMargin; // 右边间距 10
     
@@ -65,13 +99,18 @@
 
 
 
+// 点击更多按钮（三个点）
+- (IBAction)more:(id)sender {
+    GSYLogFunc
+    
+}
+
+
+
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 //    [super setSelected:selected animated:animated];
 //
 //    // Configure the view for the selected state
 //}
-
-
-
 
 @end
