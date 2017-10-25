@@ -61,6 +61,7 @@ static NSString * const GSYTopicCellId = @"topic";
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
     self.tableView.backgroundColor = GSYCommonBgColor;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // 使分割线消失
     
     self.tableView.rowHeight = 300;
     

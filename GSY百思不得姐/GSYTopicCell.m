@@ -48,7 +48,23 @@
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
-//
+
+// 设置cell的frame
+-(void)setFrame:(CGRect)frame {
+
+    
+//    frame.origin.x += GSYMargin; // 左边间距 10
+//    frame.size.width -= 2 * GSYMargin; // 右边间距 10
+    
+    frame.size.height -= GSYMargin; // 高度减少10，分组
+    frame.origin.y += GSYMargin; // 上边间距 10
+    
+    [super setFrame:frame];
+    
+}
+
+
+
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 //    [super setSelected:selected animated:animated];
 //

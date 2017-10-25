@@ -72,7 +72,7 @@
 -(void)setupTitlesView {
     // 设置标题
     UIView *titlesView = [[UIView alloc] init];
-    titlesView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.4];
+    titlesView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
     titlesView.frame = CGRectMake(0, 64, self.view.gsy_width, 35);
     self.titleView = titlesView;
     [self.view addSubview:titlesView];
