@@ -16,6 +16,7 @@
 //#import <MJRefresh.h>
 #import "GSYRefreshHeader.h"
 #import "GSYRefreshFooter.h"
+#import "GSYTopicCell.h"
 
 @interface GSYAllViewController ()
 
@@ -32,6 +33,12 @@
 
 @implementation GSYAllViewController
 
+// 循环利用的标识
+static NSString * const GSYTopicCellId = @"topic";
+
+
+#pragma mark - 初始化
+// 懒加载
 -(GSYHTTPSessionManager *)manager {
     if (!_manager) {
         _manager = [GSYHTTPSessionManager manager];
@@ -42,12 +49,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupTable];
+    
+    [self setupRefresh];
+}
+
+// 初始化 tableView 相关的东西
+-(void)setupTable {
+    
     // tableView的调整
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; // 滚动条
     self.tableView.backgroundColor = GSYCommonBgColor;
     
-    [self setupRefresh];
+    self.tableView.rowHeight = 300;
+    
+    // 注册cell - 用于自定义cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GSYTopicCell class]) bundle:nil] forCellReuseIdentifier:GSYTopicCellId];
 }
 
 // 下拉刷新
@@ -158,20 +176,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // 1.确定重用标识
-    static NSString *ID = @"cell";
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    // 3.如果空就手动创建
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+//    // 1.确定重用标识
+//    static NSString *ID = @"cell";
+//    // 2.从缓存池中取
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    // 3.如果空就手动创建
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+//    }
+//    
+//    // 4.显示数据
+//    XMGTopic *topic = self.topics[indexPath.row]; // 取出模型
+//    cell.textLabel.text = topic.name;
+//    cell.detailTextLabel.text = topic.text;
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-    // 4.显示数据
-    XMGTopic *topic = self.topics[indexPath.row]; // 取出模型
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    GSYTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:GSYTopicCellId];
+    
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
 }

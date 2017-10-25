@@ -4,6 +4,12 @@
 //
 //  Created by xiaomage on 15/9/14.
 //  Copyright (c) 2015年 xiaomage. All rights reserved.
+
+
+
+
+
+
 //  帖子模型（视频、声音、图片、段子）
 
 #import <Foundation/Foundation.h>
