@@ -199,5 +199,11 @@ static NSString * const GSYTopicCellId = @"topic";
     return cell;
 }
 
+#pragma mark - 代理方法
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    GSYTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    cell.gsy_height -= 1;
+    
+}
 
 @end

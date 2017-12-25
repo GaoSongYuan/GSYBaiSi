@@ -85,6 +85,7 @@
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
+// 重写目的：拦截所有设置cell frame的操作
 // 设置cell的frame
 -(void)setFrame:(CGRect)frame {
 //    frame.origin.x += GSYMargin; // 左边间距 10
