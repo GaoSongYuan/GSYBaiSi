@@ -102,8 +102,26 @@
 
 // 点击更多按钮（三个点）
 - (IBAction)more:(id)sender {
-    GSYLogFunc
-     
+    // 屏幕中间的alert
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"othertitle", nil];
+//    [alert show];
+    
+    // 屏幕下方出现alert 点击空白处alert会退出
+//    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"title" delegate:nil cancelButtonTitle:@"cancel" destructiveButtonTitle:@"buttontitle" otherButtonTitles:@"otherbuttontitle", nil];
+//    [sheet showInView:self];
+    
+    // alert 统一的使用：(利用modal，出现控制器)
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertCon addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了取消按钮");
+    }]];
+    [alertCon addAction:[UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了收藏按钮");
+    }]];
+    [alertCon addAction:[UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了举报按钮");
+    }]];
+    [self.window.rootViewController presentViewController:alertCon animated:YES completion:nil];
 }
 
 

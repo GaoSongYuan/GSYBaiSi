@@ -115,7 +115,7 @@
 		E4E206421F96FA4C0028383C /* GSYHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYHTTPSessionManager.h; sourceTree = "<group>"; };
 		E4E206431F96FA4C0028383C /* GSYHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYHTTPSessionManager.m; sourceTree = "<group>"; };
 		E4E206451F9749870028383C /* GSYTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSYTopicCell.h; sourceTree = "<group>"; };
-		E4E206461F9749870028383C /* GSYTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTopicCell.m; sourceTree = "<group>"; };
+		E4E206461F9749870028383C /* GSYTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSYTopicCell.m; sourceTree = "<group>"; wrapsLines = 0; };
 		E4E2064A1F9DF6380028383C /* GSYTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSYTopicCell.xib; sourceTree = "<group>"; };
 		E4E5D5511F94CA49005ED08A /* XMGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopic.h; sourceTree = "<group>"; };
 		E4E5D5521F94CA49005ED08A /* XMGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopic.m; sourceTree = "<group>"; };
