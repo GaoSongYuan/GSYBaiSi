@@ -8,7 +8,7 @@
 
 
 
-//  帖子模型（视频、声音、图片、段子）
+//  帖子模型（视频、声音、图片、段子） test MacBook 2017/12/27
 
 #import <Foundation/Foundation.h>
 
