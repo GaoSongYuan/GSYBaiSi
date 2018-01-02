@@ -36,11 +36,32 @@
     
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-    self.nameLabel.text = topic.name;
-    self.createdAtLabel.text = topic.created_at;
-    self.text_label.text = topic.text;
+    self.nameLabel.text = topic.name; // 用户的名字
+    self.createdAtLabel.text = topic.created_at; // 帖子审核通过的时间 字符串
+    self.text_label.text = topic.text; // 帖子的文字内容
     
+    // 手机当前时间
+//    NSDate *nowDate = [NSDate date]; // 2017-12-27 12:00:11 +0000
+    
+    
+    
+//    NSCalendar *calendar = nil;
+//    // 利用NSCalendar是否含有方法来控制NSCalendar的使用
+//    if ([NSCalendar respondsToSelector:@selector(calendarWithIdentifier:)]) {
+//        calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+//    } else {
+//        calendar = [NSCalendar currentCalendar];
+//    }
+//    
+//    // 利用iOS版本来控制NSCalendar的使用
+//    if (iOS(8.0)) {
+//        calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+//    } else {
+//        calendar = [NSCalendar currentCalendar];
+//    }
    
+    
+    // 按钮数字的变化（繁琐）
 //    if (topic.ding >= 10000) {
 //        [self.dingButton setTitle:[NSString stringWithFormat:@"%.1f万",topic.ding/10000.0] forState:UIControlStateNormal];
 //    } else if (topic.ding > 0) {
@@ -48,6 +69,7 @@
 //    } else {
 //        [self.dingButton setTitle:@"顶" forState:UIControlStateNormal];
 //    }
+    
 
     // 设置按钮的数字变化
     [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];

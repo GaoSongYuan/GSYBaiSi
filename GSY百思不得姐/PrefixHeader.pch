@@ -18,6 +18,9 @@
     #import "GSYConst.h"
     #import "NSString+GSYExtension.h"
 
+    // 当前系统版本判断 直接写入 version （8.0 等）
+    #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
+
     /**** 颜色 ****/
     // 带有透明度的颜色，透明度传值为0-255
     #define GSYColorA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0];
